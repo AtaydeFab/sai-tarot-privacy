@@ -1,0 +1,695 @@
+<title>Palomita</title>
+<style>
+  :root {
+    --paper:#F4F0EE;
+    --surface:#FDFBFA;
+    --surface-2:#EFE9E6;
+    --ink:#1C2427;
+    --muted:#6E7679;
+    --line:#E1D9D6;
+    --a:#B93A5B;        /* persona A */
+    --a-soft:#F7E3E8;
+    --b:#0F776D;        /* persona B */
+    --b-soft:#DCEDEA;
+    --amber:#C0801E;
+    --amber-soft:#F6EAD2;
+    --on-accent:#FFFFFF;
+    --shadow:0 18px 40px -24px rgba(28,36,39,.45);
+    --radius:16px;
+    --display:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+    --sans:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,'DejaVu Sans Mono',monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:#12181A;
+      --surface:#1A2124;
+      --surface-2:#232B2E;
+      --ink:#EBE5E2;
+      --muted:#98A1A3;
+      --line:#2D3538;
+      --a:#EE7C92;
+      --a-soft:#3A2229;
+      --b:#4CBFB0;
+      --b-soft:#173330;
+      --amber:#E0AE5C;
+      --amber-soft:#332A18;
+      --on-accent:#0C1516;
+      --shadow:0 18px 40px -24px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#12181A;
+    --surface:#1A2124;
+    --surface-2:#232B2E;
+    --ink:#EBE5E2;
+    --muted:#98A1A3;
+    --line:#2D3538;
+    --a:#EE7C92;
+    --a-soft:#3A2229;
+    --b:#4CBFB0;
+    --b-soft:#173330;
+    --amber:#E0AE5C;
+    --amber-soft:#332A18;
+    --on-accent:#0C1516;
+    --shadow:0 18px 40px -24px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing:border-box; }
+  body {
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 24px 96px; }
+  h1,h2,h3 { font-family:var(--display); font-weight:600; text-wrap:balance; margin:0; letter-spacing:-.01em; }
+  p { margin:0; }
+  a { color:var(--b); }
+
+  .eyebrow {
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ---------- hero ---------- */
+  header.hero { padding:72px 0 24px; display:grid; gap:26px; }
+  .mark { display:flex; align-items:center; gap:12px; }
+  .mark svg { display:block; }
+  .mark .name { font-family:var(--display); font-size:26px; letter-spacing:-.02em; }
+  .hero h1 { font-size:clamp(38px,6vw,66px); line-height:1.04; max-width:16ch; }
+  .hero .lede { font-size:20px; color:var(--muted); max-width:56ch; }
+  .hero .lede strong { color:var(--ink); font-weight:600; }
+
+  /* balanza del hero */
+  .scale { display:grid; gap:10px; max-width:560px; margin-top:6px; }
+  .scale-bar {
+    height:22px; border-radius:999px; overflow:hidden;
+    display:flex; background:var(--surface-2); border:1px solid var(--line);
+  }
+  .scale-bar span { display:block; height:100%; }
+  .seg-a { background:var(--a); }
+  .seg-b { background:var(--b); }
+  .scale-legend {
+    display:flex; justify-content:space-between; gap:16px;
+    font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.04em;
+  }
+  .scale-legend b { color:var(--ink); font-weight:600; }
+
+  /* ---------- secciones ---------- */
+  section { padding-top:64px; }
+  .sec-head { display:grid; gap:10px; margin-bottom:28px; max-width:60ch; }
+  .sec-head h2 { font-size:clamp(26px,3.4vw,34px); }
+  .sec-head p { color:var(--muted); }
+
+  .cards { display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+  .card {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; display:grid; gap:8px; align-content:start;
+  }
+  .card h3 { font-size:19px; }
+  .card p { color:var(--muted); font-size:15.5px; }
+
+  /* ---------- pantallas ---------- */
+  .screens { display:grid; gap:52px; }
+  .screen-row {
+    display:grid; gap:28px; align-items:center;
+    grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  }
+  @media (max-width:760px) { .screen-row { grid-template-columns:1fr; justify-items:start; } }
+  .screen-note { display:grid; gap:10px; max-width:46ch; }
+  .screen-note h3 { font-size:22px; }
+  .screen-note p { color:var(--muted); font-size:16px; }
+  .screen-note ul { margin:4px 0 0; padding-left:18px; color:var(--muted); font-size:15.5px; }
+  .screen-note li { margin-bottom:4px; }
+
+  /* teléfono */
+  .phone {
+    width:300px; background:var(--surface); border:1px solid var(--line);
+    border-radius:36px; padding:9px; box-shadow:var(--shadow);
+  }
+  .app { background:var(--paper); border-radius:28px; overflow:hidden; font-size:13px; line-height:1.45; }
+  .status {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 18px 3px; font-family:var(--mono); font-size:10px; color:var(--muted);
+  }
+  .app-head { padding:6px 16px 12px; display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .app-head .t { font-family:var(--display); font-size:20px; }
+  .app-head .s { font-size:11px; color:var(--muted); }
+  .app-body { padding:0 12px 12px; display:grid; gap:8px; }
+
+  .chips { display:flex; gap:6px; padding:0 4px 4px; flex-wrap:wrap; }
+  .chip {
+    font-size:10.5px; padding:4px 9px; border-radius:999px;
+    border:1px solid var(--line); color:var(--muted); background:var(--surface);
+  }
+  .chip.on { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+  .grp { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding:8px 4px 2px; }
+
+  .task {
+    width:100%; text-align:left; font:inherit; color:inherit;
+    display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:center;
+    background:var(--surface); border:1px solid var(--line); border-radius:13px;
+    padding:10px 11px; cursor:pointer;
+  }
+  .task:focus-visible { outline:2px solid var(--b); outline-offset:2px; }
+  .task .who { width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+    font-size:9.5px; font-weight:700; font-family:var(--mono); }
+  .who.a { background:var(--a-soft); color:var(--a); }
+  .who.b { background:var(--b-soft); color:var(--b); }
+  .who.k { background:var(--amber-soft); color:var(--amber); }
+  .task .txt { display:grid; gap:2px; min-width:0; }
+  .task .txt b { font-weight:600; font-size:13px; }
+  .task .txt small { color:var(--muted); font-size:10.5px; }
+  .box {
+    width:21px; height:21px; border-radius:7px; border:1.5px solid var(--line);
+    display:grid; place-items:center; color:transparent; transition:.18s ease;
+  }
+  .box svg { width:12px; height:12px; }
+  .task[aria-checked="true"] .box { border-color:transparent; color:var(--surface); }
+  .task[aria-checked="true"].a .box { background:var(--a); }
+  .task[aria-checked="true"].b .box { background:var(--b); }
+  .task[aria-checked="true"] .txt b { text-decoration:line-through; color:var(--muted); font-weight:500; }
+  .pill {
+    font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 7px; border-radius:999px; background:var(--amber-soft); color:var(--amber);
+  }
+
+  .nav {
+    display:grid; grid-template-columns:repeat(5,1fr); gap:2px;
+    border-top:1px solid var(--line); background:var(--surface); padding:8px 4px 12px;
+    font-size:9px; text-align:center; color:var(--muted); font-family:var(--mono); letter-spacing:.04em;
+  }
+  .nav div { display:grid; gap:4px; justify-items:center; }
+  .nav .dot { width:5px; height:5px; border-radius:50%; background:transparent; }
+  .nav .on { color:var(--ink); }
+  .nav .on .dot { background:var(--ink); }
+
+  /* balanza dentro del teléfono */
+  .panel { background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:13px; display:grid; gap:10px; }
+  .panel .k { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+  .mini-bar { height:14px; border-radius:999px; overflow:hidden; display:flex; background:var(--surface-2); }
+  .mini-bar span { height:100%; transition:width .5s cubic-bezier(.4,0,.2,1); }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .stat { display:grid; gap:1px; }
+  .stat .v { font-family:var(--mono); font-size:16px; font-variant-numeric:tabular-nums; }
+  .stat .l { font-size:10px; color:var(--muted); }
+  .stat.a .v { color:var(--a); } .stat.b .v { color:var(--b); }
+  .verdict { font-family:var(--display); font-size:16px; line-height:1.25; }
+  .note { font-size:10.5px; color:var(--muted); }
+
+  /* chat */
+  .msg { max-width:78%; padding:8px 11px; border-radius:14px; font-size:12.5px; }
+  .msg.them { background:var(--surface); border:1px solid var(--line); border-bottom-left-radius:5px; justify-self:start; }
+  .msg.me { background:var(--b); color:var(--on-accent); border-bottom-right-radius:5px; justify-self:end; }
+  .sys { justify-self:center; font-size:10.5px; color:var(--muted); font-family:var(--mono); }
+  .invite { border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden; }
+  .invite .top { padding:11px 13px 10px; display:grid; gap:3px; border-bottom:1px solid var(--line); }
+  .invite .top .k { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--a); }
+  .invite .top .t { font-family:var(--display); font-size:16px; }
+  .invite .top .d { font-size:11px; color:var(--muted); }
+  .invite .btns { display:grid; grid-template-columns:1fr 1fr; }
+  .invite .btns button {
+    font:inherit; font-size:11.5px; padding:9px 4px; border:0; cursor:pointer;
+    background:var(--surface); color:var(--muted); border-top:0;
+  }
+  .invite .btns button:first-child { color:var(--surface); background:var(--a); font-weight:600; }
+  .invite .btns button + button { border-left:1px solid var(--line); }
+
+  /* acuerdos */
+  .pact { background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:12px; display:grid; gap:8px; }
+  .pact .q { font-family:var(--display); font-size:14.5px; line-height:1.3; }
+  .sig { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--muted); }
+  .sig .who { width:18px; height:18px; border-radius:50%; display:grid; place-items:center; font-size:8.5px; font-weight:700; font-family:var(--mono); }
+  .rule { height:1px; background:var(--line); }
+
+  /* mecánica */
+  .mech { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .mech .card .w { font-family:var(--mono); font-size:12px; color:var(--b); }
+
+  .steps { display:grid; gap:14px; counter-reset:step; }
+  .step {
+    display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px;
+  }
+  .step .n {
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+    border:1px solid var(--line); border-radius:8px; padding:3px 8px; letter-spacing:.06em;
+  }
+  .step h3 { font-size:18px; margin-bottom:4px; }
+  .step p { color:var(--muted); font-size:15.5px; }
+
+  .closing {
+    margin-top:64px; padding:30px 26px; border-radius:var(--radius);
+    background:var(--surface); border:1px solid var(--line); display:grid; gap:10px;
+  }
+  .closing h2 { font-size:24px; }
+  .closing p { color:var(--muted); }
+
+  footer { margin-top:40px; color:var(--muted); font-size:13px; font-family:var(--mono); }
+
+  @media (prefers-reduced-motion:reduce) { * { transition:none !important; animation:none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="mark">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <circle cx="15" cy="15" r="14" fill="none" stroke="currentColor" stroke-opacity=".22"/>
+        <path d="M8 15.5l4.6 4.6L22 10.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="name">Palomita</span>
+    </div>
+
+    <h1>La casa se reparte, no se reclama.</h1>
+    <p class="lede">Una app para dos: los pendientes de la semana, quién los va <strong>palomeando</strong>, cómo va la balanza, los acuerdos que hicieron juntos — y un chat donde también se invita a una cita.</p>
+
+    <div class="scale">
+      <div class="scale-bar" role="img" aria-label="Balanza de la semana: 54 por ciento tú, 46 por ciento Ale">
+        <span class="seg-a" style="width:54%"></span>
+        <span class="seg-b" style="width:46%"></span>
+      </div>
+      <div class="scale-legend">
+        <span><b>Tú</b> · 54%</span>
+        <span>equilibrio de la semana</span>
+        <span><b>Ale</b> · 46%</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">De qué se trata</p>
+      <h2>Tres reglas que definen toda la app</h2>
+      <p>Si estas tres no se respetan, la app se vuelve un marcador — y un marcador entre pareja siempre lo gana alguien.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>La balanza mide carga, no puntos</h3>
+        <p>No dice quién va ganando. Dice si esta semana la carga cayó pareja. Se reinicia cada domingo para que nadie arrastre deudas viejas.</p>
+      </div>
+      <div class="card">
+        <h3>Todo acuerdo se firma de a dos</h3>
+        <p>Nadie asigna tareas al otro. Se proponen y el otro acepta. Lo que no se aceptó, no existe — así no hay “yo nunca dije que sí”.</p>
+      </div>
+      <div class="card">
+        <h3>Los peques son equipo, no personal</h3>
+        <p>Tienen sus propias misiones, con lenguaje de niño y recompensa compartida. Ven lo suyo; no ven la balanza de ustedes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Pantallas</p>
+      <h2>Cómo se vería</h2>
+      <p>Cinco pestañas, nada más. Las palomitas de la primera pantalla se pueden marcar aquí mismo — y la balanza de la segunda se mueve con ellas.</p>
+    </div>
+
+    <div class="screens">
+
+      <!-- 1. HOY -->
+      <div class="screen-row">
+        <div class="phone">
+          <div class="app">
+            <div class="status"><span>20:14</span><span>▮▮▮ 78%</span></div>
+            <div class="app-head"><span class="t">Hoy</span><span class="s">jueves 14</span></div>
+            <div class="app-body">
+              <div class="chips"><span class="chip on">Todo</span><span class="chip">Casa</span><span class="chip">Dinero</span><span class="chip">Peques</span></div>
+
+              <button class="task b" role="checkbox" aria-checked="true" data-owner="b" data-weight="30">
+                <span class="who b">A</span>
+                <span class="txt"><b>Recoger a Emi del futbol</b><small>Ale · hecho 18:30</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+
+              <button class="task a" role="checkbox" aria-checked="false" data-owner="a" data-weight="20">
+                <span class="who a">T</span>
+                <span class="txt"><b>Lavar los trastes</b><small>Tú · 20 min</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+
+              <button class="task b" role="checkbox" aria-checked="false" data-owner="b" data-weight="15">
+                <span class="who b">A</span>
+                <span class="txt"><b>Pagar la luz · $842</b><small>Ale · vence hoy</small></span>
+                <span class="pill">Hoy</span>
+              </button>
+
+              <div class="grp">Se repite</div>
+
+              <button class="task a" role="checkbox" aria-checked="false" data-owner="a" data-weight="10">
+                <span class="who a">T</span>
+                <span class="txt"><b>Sacar la basura</b><small>Tú · martes y viernes</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+
+              <button class="task b" role="checkbox" aria-checked="false" data-owner="b" data-weight="25">
+                <span class="who b">A</span>
+                <span class="txt"><b>Preparar lonches</b><small>Ale · mañana 7:00</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+            </div>
+            <div class="nav">
+              <div class="on"><span class="dot"></span>Hoy</div>
+              <div><span class="dot"></span>Balanza</div>
+              <div><span class="dot"></span>Chat</div>
+              <div><span class="dot"></span>Acuerdos</div>
+              <div><span class="dot"></span>Equipo</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-note">
+          <p class="eyebrow">Pestaña 1</p>
+          <h3>Hoy — lo que toca, con nombre y apellido</h3>
+          <p>Cada pendiente trae dueño y color. Se palomea con un toque; el otro recibe el aviso al instante, sin tener que preguntar “¿ya lo hiciste?”.</p>
+          <ul>
+            <li>Tareas sueltas y tareas que se repiten, separadas.</li>
+            <li>Vencimientos suaves: un pill ámbar, nunca rojo de regaño.</li>
+            <li>Deslizar a la izquierda: “hoy no puedo, ¿lo tomas tú?” — pasa como petición, no como reclamo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. BALANZA -->
+      <div class="screen-row">
+        <div class="phone">
+          <div class="app">
+            <div class="status"><span>20:14</span><span>▮▮▮ 78%</span></div>
+            <div class="app-head"><span class="t">Balanza</span><span class="s">8 – 14 ago</span></div>
+            <div class="app-body">
+              <div class="panel">
+                <span class="k">Esta semana</span>
+                <div class="mini-bar" id="miniBar">
+                  <span class="seg-a" id="segA" style="width:54%"></span>
+                  <span class="seg-b" id="segB" style="width:46%"></span>
+                </div>
+                <p class="verdict" id="verdict">Van parejos. 54 / 46.</p>
+                <p class="note" id="verdictNote">Diferencia de 1 tarea pesada. Se reinicia el domingo.</p>
+              </div>
+
+              <div class="panel">
+                <span class="k">Carga repartida</span>
+                <div class="split">
+                  <div class="stat a"><span class="v">12</span><span class="l">Tú · tareas</span></div>
+                  <div class="stat b"><span class="v">10</span><span class="l">Ale · tareas</span></div>
+                  <div class="stat a"><span class="v">4h 20</span><span class="l">Tú · tiempo</span></div>
+                  <div class="stat b"><span class="v">3h 55</span><span class="l">Ale · tiempo</span></div>
+                </div>
+                <div class="rule"></div>
+                <p class="note">Lo invisible cuenta: agendar al pediatra pesa igual que trapear.</p>
+              </div>
+
+              <div class="panel">
+                <span class="k">Se sintió</span>
+                <p style="font-size:12.5px">💛 7 “gracias” esta semana — 4 para Ale, 3 para ti.</p>
+                <p class="note">3 semanas seguidas en equilibrio. Racha más larga: 5.</p>
+              </div>
+            </div>
+            <div class="nav">
+              <div><span class="dot"></span>Hoy</div>
+              <div class="on"><span class="dot"></span>Balanza</div>
+              <div><span class="dot"></span>Chat</div>
+              <div><span class="dot"></span>Acuerdos</div>
+              <div><span class="dot"></span>Equipo</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-note">
+          <p class="eyebrow">Pestaña 2</p>
+          <h3>Balanza — para sentirse apoyados, no medidos</h3>
+          <p>La barra no premia a nadie: solo muestra si la semana cayó pareja. Cuando se desbalancea, la app no acusa, propone: <em>“Ale lleva 3 pendientes pesados. ¿Le pasas uno?”</em></p>
+          <ul>
+            <li>Cada tarea tiene un peso (minutos + carga mental), no vale lo mismo un vaso que una cita médica.</li>
+            <li>Cuenta el trabajo invisible: agendar, recordar, cotizar, hacer fila.</li>
+            <li>Los “gracias” se registran igual que las tareas — el reconocimiento es parte de la balanza.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. CHAT -->
+      <div class="screen-row">
+        <div class="phone">
+          <div class="app">
+            <div class="status"><span>20:14</span><span>▮▮▮ 78%</span></div>
+            <div class="app-head"><span class="t">Ale</span><span class="s">en línea</span></div>
+            <div class="app-body" style="gap:7px">
+              <div class="msg them">Ya quedó la luz 💸 no se nos va a ir el finde</div>
+              <div class="sys">Ale palomeó “Pagar la luz”</div>
+              <div class="msg me">Gracias, de verdad 💛</div>
+
+              <div class="invite">
+                <div class="top">
+                  <span class="k">Invitación · Cita</span>
+                  <span class="t">Cena en el Kolobok</span>
+                  <span class="d">Viernes 15 · 8:30 pm · Emi y Nico con tu mamá</span>
+                </div>
+                <div class="btns"><button type="button">Va, ahí nos vemos</button><button type="button">Otro día</button></div>
+              </div>
+
+              <div class="msg them">Ash sí 🥹 me hacía falta</div>
+            </div>
+            <div class="nav">
+              <div><span class="dot"></span>Hoy</div>
+              <div><span class="dot"></span>Balanza</div>
+              <div class="on"><span class="dot"></span>Chat</div>
+              <div><span class="dot"></span>Acuerdos</div>
+              <div><span class="dot"></span>Equipo</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-note">
+          <p class="eyebrow">Pestaña 3</p>
+          <h3>Chat — donde la logística no se come la relación</h3>
+          <p>El mismo hilo lleva lo práctico y lo bonito. Además de escribir, se pueden mandar tarjetas: una cita, un “gracias”, una petición de ayuda o un acuerdo para firmar.</p>
+          <ul>
+            <li><b>Cita:</b> lugar, hora y quién se queda con los peques. Al aceptar, entra al calendario de los dos.</li>
+            <li><b>Gracias:</b> se ancla a una tarea real y suma a la balanza emocional.</li>
+            <li>Lo que se palomea aparece como nota del sistema — se entera sin que nadie tenga que avisar.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. ACUERDOS -->
+      <div class="screen-row">
+        <div class="phone">
+          <div class="app">
+            <div class="status"><span>20:14</span><span>▮▮▮ 78%</span></div>
+            <div class="app-head"><span class="t">Acuerdos</span><span class="s">4 vigentes</span></div>
+            <div class="app-body">
+              <div class="pact">
+                <p class="q">“Quien cocina, no lava.”</p>
+                <div class="sig">
+                  <span class="who a">T</span><span class="who b">A</span>
+                  <span>Firmado 3 mar · sin vencimiento</span>
+                </div>
+              </div>
+
+              <div class="pact">
+                <p class="q">“Los domingos no se habla de dinero.”</p>
+                <div class="sig">
+                  <span class="who a">T</span><span class="who b">A</span>
+                  <span>Firmado 21 jun · se revisa en 30 días</span>
+                </div>
+              </div>
+
+              <div class="pact">
+                <p class="q">“Si llegamos después de las 9, avisamos antes de las 8.”</p>
+                <div class="sig">
+                  <span class="who a">T</span><span class="who b">A</span>
+                  <span>Cumplido 11 de 12 veces</span>
+                </div>
+              </div>
+
+              <div class="pact" style="border-style:dashed">
+                <span class="k" style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)">Esperando tu firma</span>
+                <p class="q">“Un viernes al mes es de nosotros dos.”</p>
+                <div class="sig"><span class="who b">A</span><span>Ale lo propuso hoy</span></div>
+              </div>
+            </div>
+            <div class="nav">
+              <div><span class="dot"></span>Hoy</div>
+              <div><span class="dot"></span>Balanza</div>
+              <div><span class="dot"></span>Chat</div>
+              <div class="on"><span class="dot"></span>Acuerdos</div>
+              <div><span class="dot"></span>Equipo</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-note">
+          <p class="eyebrow">Pestaña 4</p>
+          <h3>Acuerdos — las promesas, por escrito y sin drama</h3>
+          <p>Lo que ustedes pactaron vive aquí, con fecha y las dos firmas. Cuando la memoria falla, no se discute: se abre el acuerdo.</p>
+          <ul>
+            <li>Se proponen, se firman y se pueden revisar en X días — un acuerdo puede caducar sin que sea un fracaso.</li>
+            <li>Registra cumplimiento en positivo (“11 de 12”), nunca lista de faltas.</li>
+            <li>Los que involucran a los peques se muestran también en su pestaña, en su idioma.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. EQUIPO -->
+      <div class="screen-row">
+        <div class="phone">
+          <div class="app">
+            <div class="status"><span>20:14</span><span>▮▮▮ 78%</span></div>
+            <div class="app-head"><span class="t">Equipo</span><span class="s">Emi · Nico</span></div>
+            <div class="app-body">
+              <div class="panel">
+                <span class="k">Meta de la familia</span>
+                <p style="font-size:12.5px">Sábado de peli y palomitas 🍿</p>
+                <div class="mini-bar"><span style="width:70%;background:var(--amber)"></span></div>
+                <p class="note">14 de 20 misiones · faltan 6</p>
+              </div>
+
+              <div class="grp">Emi · 8 años</div>
+              <button class="task" role="checkbox" aria-checked="true" style="cursor:default">
+                <span class="who k">E</span>
+                <span class="txt"><b>Tender mi cama</b><small>⭐ hoy</small></span>
+                <span class="box" style="background:var(--amber);border-color:transparent;color:var(--surface)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <button class="task" role="checkbox" aria-checked="false" style="cursor:default">
+                <span class="who k">E</span>
+                <span class="txt"><b>Darle de comer a Kira</b><small>antes de cenar</small></span>
+                <span class="box"></span>
+              </button>
+
+              <div class="grp">Nico · 5 años</div>
+              <button class="task" role="checkbox" aria-checked="false" style="cursor:default">
+                <span class="who k">N</span>
+                <span class="txt"><b>Guardar mis juguetes</b><small>con dibujitos, sin leer</small></span>
+                <span class="box"></span>
+              </button>
+              <p class="note" style="padding:2px 4px">Los peques ven solo sus misiones. La balanza de ustedes no aparece de su lado.</p>
+            </div>
+            <div class="nav">
+              <div><span class="dot"></span>Hoy</div>
+              <div><span class="dot"></span>Balanza</div>
+              <div><span class="dot"></span>Chat</div>
+              <div><span class="dot"></span>Acuerdos</div>
+              <div class="on"><span class="dot"></span>Equipo</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-note">
+          <p class="eyebrow">Pestaña 5</p>
+          <h3>Equipo — los hijos también son parte del trato</h3>
+          <p>Misiones con estrellas y una meta compartida en vez de premios individuales: el sábado de peli se gana entre todos, así nadie compite con su hermano.</p>
+          <ul>
+            <li>Perfil por edad: el de 5 años ve dibujos, el de 8 ya lee su lista.</li>
+            <li>Vista de niño protegida: sin chat de adultos, sin dinero, sin balanza.</li>
+            <li>Los acuerdos familiares (“pantallas hasta terminar tarea”) los firman ellos también — con su palomita.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">La mecánica</p>
+      <h2>Cómo se calcula la balanza</h2>
+      <p>Es la única fórmula de la app, y por eso tiene que ser justa. Cada tarea vale por el tiempo que quita <em>y</em> por la cabeza que ocupa.</p>
+    </div>
+    <div class="mech">
+      <div class="card"><span class="w">peso = minutos + carga mental</span><h3>No todo pesa igual</h3><p>Sacar la basura: 5. Cotizar y agendar al plomero: 30, aunque “solo” sean dos llamadas.</p></div>
+      <div class="card"><span class="w">ventana = 7 días</span><h3>Semana limpia</h3><p>Domingo en la noche se cierra y se archiva. Nadie empieza el lunes debiendo.</p></div>
+      <div class="card"><span class="w">rango sano = 45–55%</span><h3>Parejo no es exacto</h3><p>Dentro del rango, la app dice “van bien” y se calla. Solo habla cuando se abre de verdad.</p></div>
+      <div class="card"><span class="w">desbalance → propuesta</span><h3>Sugiere, no acusa</h3><p>“Esta semana cargaste más tú. ¿Le paso a Ale la lavandería del sábado?” Un botón, sin conversación incómoda.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Por dónde empezar</p>
+      <h2>Tres entregas, en este orden</h2>
+      <p>La secuencia importa: cada etapa sirve sola, aunque nunca se construya la siguiente.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">v1</span>
+        <div>
+          <h3>Pendientes compartidos + palomita</h3>
+          <p>Dos personas, una lista, tareas con dueño y repetición, aviso cuando el otro palomea. Web app que se instala en el teléfono — sin tiendas de apps, sin esperar aprobación. Con esto ya dejan de discutir “¿quién iba a…?”.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n">v2</span>
+        <div>
+          <h3>Balanza y chat con tarjetas</h3>
+          <p>Pesos por tarea, resumen semanal, “gracias”, y el chat con invitación a cita. Es la parte que hace que se sienta apoyo y no administración.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n">v3</span>
+        <div>
+          <h3>Acuerdos firmados y peques</h3>
+          <p>Promesas con dos firmas y vigencia, perfiles de hijos con misiones y meta familiar. Aquí la app deja de ser lista de tareas y se vuelve la convivencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <h2>Lo que falta decidir</h2>
+    <p>Tres cosas cambian el diseño de raíz: si quieren que el <b>dinero</b> viva adentro (gastos compartidos, quién pagó qué) o se quede como simple recordatorio; cuántos <b>hijos</b> y de qué edades, porque define si hay app para ellos o solo vista de papás; y si esto corre en <b>web</b> —listo en días, se abre desde el teléfono— o va a tienda de apps, que es otro camino.</p>
+    <p>Con eso definido, la v1 es una app real y usable, no una maqueta.</p>
+  </div>
+
+  <footer>Palomita · concepto v1 · ago 2026</footer>
+</div>
+
+<script>
+  (function () {
+    var tasks = Array.prototype.slice.call(document.querySelectorAll('.task[data-owner]'));
+    var segA = document.getElementById('segA');
+    var segB = document.getElementById('segB');
+    var verdict = document.getElementById('verdict');
+    var note = document.getElementById('verdictNote');
+    var BASE_A = 34, BASE_B = 30; // carga ya acumulada en la semana
+
+    function render() {
+      var a = BASE_A, b = BASE_B;
+      tasks.forEach(function (t) {
+        if (t.getAttribute('aria-checked') === 'true') {
+          var w = parseInt(t.dataset.weight, 10) || 0;
+          if (t.dataset.owner === 'a') { a += w; } else { b += w; }
+        }
+      });
+      var total = a + b;
+      var pa = Math.round((a / total) * 100);
+      var pb = 100 - pa;
+      segA.style.width = pa + '%';
+      segB.style.width = pb + '%';
+      var gap = Math.abs(pa - 50);
+      if (gap <= 5) {
+        verdict.textContent = 'Van parejos. ' + pa + ' / ' + pb + '.';
+        note.textContent = 'Dentro del rango sano. Se reinicia el domingo.';
+      } else if (pa > 50) {
+        verdict.textContent = 'Cargaste más tú: ' + pa + ' / ' + pb + '.';
+        note.textContent = '¿Le pasas un pendiente a Ale para el sábado?';
+      } else {
+        verdict.textContent = 'Ale cargó más: ' + pb + ' / ' + pa + '.';
+        note.textContent = 'Buen momento para tomar tú los lonches de mañana.';
+      }
+    }
+
+    tasks.forEach(function (t) {
+      if (!t.querySelector('.box')) { return; }
+      t.addEventListener('click', function () {
+        t.setAttribute('aria-checked', t.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+        render();
+      });
+    });
+
+    render();
+  })();
+</script>

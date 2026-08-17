@@ -202,3 +202,29 @@ export function cambiarYo(yo: MiembroId) {
 export function reiniciar() {
   guardar(inicial())
 }
+
+/** Todo lo de este teléfono en un archivo, para no depender de que el navegador no se limpie. */
+export function exportar(): string {
+  return JSON.stringify({ ...estado, exportadoEn: new Date().toISOString() }, null, 2)
+}
+
+export function importar(texto: string): { ok: boolean; mensaje: string } {
+  let datos: Partial<Estado>
+  try {
+    datos = JSON.parse(texto) as Partial<Estado>
+  } catch {
+    return { ok: false, mensaje: 'Ese archivo no se pudo leer. ¿Es el respaldo que bajó la app?' }
+  }
+  if (datos.version !== VERSION || !Array.isArray(datos.tareas) || !Array.isArray(datos.plantillas)) {
+    return { ok: false, mensaje: 'El archivo no es un respaldo de Juntos+ o es de otra versión.' }
+  }
+  guardar({
+    version: VERSION,
+    yo: datos.yo ?? 'fa',
+    plantillas: datos.plantillas,
+    tareas: datos.tareas,
+    eventos: datos.eventos ?? [],
+    recordatorios: datos.recordatorios ?? [],
+  })
+  return { ok: true, mensaje: 'Listo, se restauró el respaldo.' }
+}

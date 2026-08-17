@@ -1,4 +1,4 @@
-<title>Anteproyecto Palomita</title>
+<title>Anteproyecto Juntos+</title>
 <style>
   :root {
     --paper:#F4F0EE; --surface:#FDFBFA; --surface-2:#EFE9E6;
@@ -156,7 +156,7 @@
         <circle cx="15" cy="15" r="14" fill="none" stroke="currentColor" stroke-opacity=".22"/>
         <path d="M8 15.5l4.6 4.6L22 10.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span>Palomita</span>
+      <span>Juntos+</span>
     </div>
     <h1>Anteproyecto: de la idea a una app que de verdad se use</h1>
     <p class="lede">Análisis de producto, crítica honesta de la idea, MVP recortado, experiencia de usuario, arquitectura, modelo de datos, API, seguridad y plan por fases. Sin una línea de código hasta que lo apruebes.</p>
@@ -191,18 +191,27 @@
       <section id="nombres">
         <div class="sec-title">
           <span class="n">00</span>
-          <h2>Nombres para la app</h2>
-          <p>Lo que pediste directo. Busqué nombres cortos, que se digan bien en voz alta en México, que no suenen a software de oficina y que aguanten crecer más allá de las tareas (porque la app también lleva dinero, comida y recuerdos).</p>
+          <h2>El nombre: Juntos+</h2>
+          <p>Elegiste <b>Juntos+</b> por la sensación de plataforma integral, y me parece coherente con lo que decidiste construir: una app que desde el arranque lleva tareas, niñas y dinero. Dejo abajo el razonamiento y las opciones que quedaron descartadas, por si algún día se replantea.</p>
         </div>
 
         <div class="names">
           <div class="name-card pick">
-            <div class="top"><span class="nm">Palomita</span><span class="badge">Mi recomendación</span></div>
-            <p class="why">Viene del verbo que ya usas: <em>palomear</em>. El nombre es la acción central de la app, y eso hace que se explique solo — "ya le puse su palomita" ya es una frase que dicen. Además la paloma es un símbolo tranquilo, no de productividad.</p>
+            <div class="top"><span class="nm">Juntos+</span><span class="badge">Elegido</span></div>
+            <p class="why">Dice de entrada que esto no es una lista de pendientes: es todo lo de la casa en un lugar. El "+" comunica que hay más adentro — y con tu decisión de arrancar con los tres módulos, el nombre y el producto se corresponden. Además incluye a las cuatro sin nombrar a nadie.</p>
             <div class="pc">
-              <span class="pro">Se entiende sin explicación y es cariñoso, no corporativo.</span>
-              <span class="pro">Da nombre natural a las acciones: palomear, mi palomita del día.</span>
-              <span class="con">Palabra común: dominio <code>.com</code> difícil y se confunde con palomitas de maíz.</span>
+              <span class="pro">Suena a plataforma completa, que es exactamente lo que estás construyendo.</span>
+              <span class="pro">Corto, se dice fácil y funciona igual en la app de las niñas.</span>
+              <span class="con">El "+" no se escribe bien en dominios ni en búsquedas, y a veces se lee como "versión de paga". Si algún día se publica, el dominio sería <code>juntosmas</code> o similar.</span>
+            </div>
+          </div>
+
+          <div class="name-card">
+            <div class="top"><span class="nm">Palomita</span><span class="badge" style="background:var(--surface-2);color:var(--muted)">Descartado</span></div>
+            <p class="why">Venía del verbo que ya usas: <em>palomear</em>. Se explicaba solo, pero apunta a una sola acción — quedaba corto para una app que también lleva dinero y cocina.</p>
+            <div class="pc">
+              <span class="pro">Cariñoso y muy fácil de recordar.</span>
+              <span class="con">Nombra solo las tareas; se confunde con palomitas de maíz.</span>
             </div>
           </div>
 
@@ -253,13 +262,13 @@
           </div>
         </div>
 
-        <div class="callout dec">
-          <span class="lbl">Decisión que propongo</span>
-          <p>Quedarnos con <b>Palomita</b> como nombre de producto y usar <em>"cuenta conmigo"</em> como frase de la pantalla de bienvenida. Así te quedas con el nombre corto y con la idea emocional, sin tener que elegir entre las dos. Si prefieres uno solo, mi segunda opción es <b>Cuenta Conmigo</b>.</p>
+        <div class="callout ok">
+          <span class="lbl">Decidido</span>
+          <p>El producto se llama <b>Juntos+</b>. Como frase de bienvenida uso <em>"cuenta conmigo"</em>, que aporta el lado emocional sin cargarlo al nombre. La palabra <em>palomear</em> se queda de todas formas: es el verbo de la acción principal dentro de la app.</p>
         </div>
         <div class="callout risk">
-          <span class="lbl">Pendiente antes de imprimir nada</span>
-          <p>No verifiqué disponibilidad de dominio ni marcas registradas. Si la app va a ser solo para ustedes, da igual. Si algún día la publicas, hay que revisar dominio y registro antes de casarte con el nombre — es media hora de trabajo, no la hagamos hoy.</p>
+          <span class="lbl">Pendiente, solo si algún día se publica</span>
+          <p>No verifiqué dominio ni marcas registradas, y "Juntos" es una palabra muy usada. Si la app se queda entre ustedes, da igual. Si algún día se abre a otras parejas, hay que revisar disponibilidad antes de imprimir nada — media hora de trabajo, no hoy.</p>
         </div>
       </section>
 
@@ -381,14 +390,19 @@
           <p>Solo lo que cambia el diseño o el código. Todo lo demás lo decidí yo y está listado abajo para que lo revises de un vistazo.</p>
         </div>
 
-        <h3>Preguntas que sí cambian el proyecto</h3>
+        <div class="callout ok">
+          <span class="lbl">Ya decidido por ti</span>
+          <p><b>Nombre:</b> Juntos+. · <b>Alcance de la v1:</b> los tres módulos juntos — tareas, niñas y dinero. · <b>Privacidad del dinero:</b> todo abierto entre ustedes dos. · <b>Acceso de las niñas:</b> cada una con su propio dispositivo. Las consecuencias de cada decisión están aplicadas en las secciones 04, 09, 11 y 12.</p>
+        </div>
+
+        <h3>Lo que todavía necesito saber</h3>
         <div class="tw">
           <table>
             <tr><th>#</th><th>Pregunta</th><th>Por qué importa</th></tr>
             <tr><td class="num">1</td><td>¿Qué teléfono usa cada quien, Android o iPhone?</td><td>Define si las notificaciones funcionan bien o si hay que instalar la app a la pantalla de inicio sí o sí.</td></tr>
             <tr><td class="num">2</td><td>¿Tu pareja ya sabe de esto y estaría dispuesto a usarla? ¿Qué le chocaría?</td><td>Es el riesgo número uno del proyecto. Si hay dudas, la v1 se recorta todavía más.</td></tr>
-            <tr><td class="num">3</td><td>¿Tus hijas tienen tablet o teléfono propio? ¿Qué edades exactas?</td><td>Decide si su acceso es una cuenta, un perfil dentro de tu teléfono, o papel impreso.</td></tr>
-            <tr><td class="num">4</td><td>En el dinero: ¿el otro ve <em>cada</em> gasto tuyo o solo tus totales?</td><td>Cambia permisos y modelo de datos. Mi propuesta por defecto: detalle privado, totales compartidos.</td></tr>
+            <tr><td class="num">3</td><td>¿Qué edad tiene cada una y qué dispositivo usan: tablet o teléfono?</td><td>La edad define si su pantalla lleva dibujos o texto, y el dispositivo define cómo entran sin cuenta de correo.</td></tr>
+            <tr><td class="num">4</td><td>Los nombres reales de los cuatro.</td><td>Para que la app nazca con sus nombres y no con datos de relleno.</td></tr>
             <tr><td class="num">5</td><td>¿Registran todos los gastos personales o solo los de la casa?</td><td>Define si la app es un gestor de finanzas personales (difícil de sostener) o solo del hogar (sostenible).</td></tr>
             <tr><td class="num">6</td><td>¿La app es solo para ustedes o piensas publicarla algún día?</td><td>Cambia todo: cuentas, aviso de privacidad, soporte, costos. Hoy asumo que es solo de ustedes.</td></tr>
             <tr><td class="num">7</td><td>¿Quieres recordatorio a hora fija? ¿A qué hora?</td><td>Es la única notificación que de verdad hace falta en la v1.</td></tr>
@@ -470,7 +484,7 @@
         <div class="sec-title">
           <span class="n">04</span>
           <h2>El MVP</h2>
-          <p>La regla del MVP aquí es dura: <b>si no se usa todos los días, no entra.</b> Todo lo demás tiene una segunda o tercera vuelta.</p>
+          <p>Elegiste la versión completa: <b>tareas, niñas y dinero en la primera entrega</b>. Es más ambiciosa que mi recomendación, así que la organizo en rebanadas: cada una se termina y se prueba antes de empezar la siguiente, para que nunca haya tres cosas a medias al mismo tiempo.</p>
         </div>
 
         <h3>Entra en la v1</h3>
@@ -482,23 +496,24 @@
             <tr><td>Vista Hoy</td><td>Lo del día de los tres, palomear y despalomear, botón grande de nueva tarea.</td></tr>
             <tr><td>Vista Semana</td><td>Lunes a domingo, todo el hogar, mover una tarea de día, pasarla al otro, borrarla con la pregunta de alcance.</td></tr>
             <tr><td>Fines de semana con las niñas</td><td>Marcar qué findes vienen y un aviso informativo. Nada cambia solo.</td></tr>
-            <tr><td>Vista de niña</td><td>Sus tareas del día, palomear, contador de estrellas. Dos pantallas, cero texto complicado.</td></tr>
+            <tr><td>App de las niñas</td><td>Cada una entra desde su propio dispositivo con un código que tú generas, más PIN. Ve sus tareas del día, palomea y junta estrellas. Dos pantallas, sin puerta hacia lo de adultos.</td></tr>
             <tr><td>Resumen semanal simple</td><td>Cuántas hizo cada quien esta semana. Sin porcentajes, sin pesos, sin comparación.</td></tr>
+            <tr><td>Dinero</td><td>Registrar ingreso o gasto en cuatro toques, categorías propias, cargos fijos automáticos, resumen personal y resumen conjunto, y el mes semana por semana. Todo visible entre ustedes dos.</td></tr>
             <tr><td>Notificaciones</td><td>Una diaria a hora fija, y aviso agrupado cuando el otro palomea. Configurables y apagables.</td></tr>
             <tr><td>Offline y sincronización</td><td>Todo funciona sin señal y se sincroniza al volver.</td></tr>
           </table>
         </div>
 
-        <div class="callout dec">
-          <span class="lbl">Alternativa si el dinero te urge más</span>
-          <p>Si prefieres que el dinero salga antes, se puede subir a la v1 su mitad útil — registrar movimiento, gastos fijos automáticos y el resumen mío/nuestro — a cambio de bajar la vista de niñas a la v2. Es un intercambio limpio: una cosa entra, otra sale. Lo que <b>no</b> recomiendo es meter las dos y estirar la v1 al doble.</p>
+        <div class="callout risk">
+          <span class="lbl">Lo que implica llevar los tres juntos</span>
+          <p>Es aproximadamente el doble de trabajo y, sobre todo, el doble de superficie que probar antes de confiar en ella. Para que eso no se vuelva un problema, el orden interno de construcción es: <b>tareas → sin conexión y avisos → niñas → dinero</b>, y recién entonces el piloto de dos semanas. Si a media construcción notas que las tareas ya te sirven y quieres usarlas antes, se puede soltar esa rebanada sola sin esperar al resto.</p>
         </div>
 
         <h3>Se va a la v2</h3>
-        <p>Dinero completo (ingresos por semana o mes, categorías, resumen mío y nuestro, mes por semanas), lista del súper con despensa, fechas importantes con aviso anticipado, "hoy no puedo", gracias, y el detalle del día.</p>
+        <p>Lista del súper con despensa, fechas importantes con aviso anticipado, "hoy no puedo", gracias, el detalle del día con mensajes de ustedes, y el menú con recetario.</p>
 
         <h3>Se va a la v3</h3>
-        <p>Antojos con etiquetas e historial vivido, acuerdos firmados, menú semanal con recetario, tarjetas de cita que se comparten por WhatsApp, estrellas con premio y recap mensual.</p>
+        <p>Antojos con etiquetas e historial vivido, acuerdos firmados, tarjetas de cita que se comparten por WhatsApp, premios canjeables de las niñas y recap mensual.</p>
 
         <h3>No se desarrolla</h3>
         <p>Todo lo de la lista "No recomendadas" de la sección anterior. Si dentro de seis meses alguna se vuelve necesaria, se replantea con datos de uso reales — no antes.</p>
@@ -513,7 +528,7 @@
         </div>
 
         <h3>Arquitectura de navegación</h3>
-        <p>Cinco pestañas fijas abajo, al alcance del pulgar: <b>Hoy · Semana · Cocina · Dinero · Nosotros</b>. En la v1 solo existen Hoy y Semana; las otras aparecen conforme se construyen, para que la app nunca muestre pestañas muertas. Sin menú de hamburguesa: en una app de cinco secciones, esconder la navegación es empeorarla.</p>
+        <p>Cinco pestañas fijas abajo, al alcance del pulgar: <b>Hoy · Semana · Cocina · Dinero · Nosotros</b>. En la v1 existen Hoy, Semana y Dinero; Cocina y Nosotros aparecen cuando se construyan, para que la app nunca muestre pestañas muertas. Sin menú de hamburguesa: en una app de cinco secciones, esconder la navegación es empeorarla.</p>
 
         <h3>Pantallas</h3>
         <div class="tw">
@@ -829,6 +844,12 @@
               <td>Solo informativa: no dispara automatismos</td>
             </tr>
             <tr>
+              <td><b>dispositivo</b></td>
+              <td>Cómo entra cada niña desde su tablet o teléfono, sin correo</td>
+              <td><code>id</code> · <code>hogar_id</code> · <code>miembro_id</code> · <code>codigo</code> texto (un solo uso) · <code>nombre_dispositivo</code> · <code>vinculado_en</code> · <code>ultimo_uso</code> · <code>revocado</code> booleano</td>
+              <td>Pertenece a un miembro con rol niña</td>
+            </tr>
+            <tr>
               <td><b>invitacion</b></td>
               <td>Sumar a la pareja al hogar</td>
               <td><code>id</code> · <code>hogar_id</code> · <code>codigo</code> texto · <code>expira</code> · <code>usada_por</code> · <code>usada_en</code></td>
@@ -841,7 +862,7 @@
         <div class="tw">
           <table>
             <tr><th>Entidad</th><th>Propósito</th><th>Campos principales</th></tr>
-            <tr><td><b>movimiento</b></td><td>Ingreso o gasto</td><td><code>id</code> · <code>hogar_id</code> · <code>miembro_id</code> (quién pagó o cobró) · <code>tipo</code> enum(ingreso, gasto) · <code>monto</code> decimal(12,2) · <code>categoria_id</code> · <code>fecha</code> · <code>nota</code> · <code>visibilidad</code> enum(privado_detalle, compartido) · <code>foto_url</code> nulo</td></tr>
+            <tr><td><b>movimiento</b></td><td>Ingreso o gasto — visible para los dos adultos</td><td><code>id</code> · <code>hogar_id</code> · <code>miembro_id</code> (quién pagó o cobró) · <code>tipo</code> enum(ingreso, gasto) · <code>monto</code> decimal(12,2) · <code>categoria_id</code> · <code>fecha</code> · <code>nota</code> · <code>foto_url</code> nulo</td></tr>
             <tr><td><b>categoria</b></td><td>Clasificar gastos e ingresos</td><td><code>id</code> · <code>hogar_id</code> · <code>nombre</code> · <code>tipo</code> · <code>orden</code></td></tr>
             <tr><td><b>cargo_fijo</b></td><td>Gastos que se repiten y entran solos</td><td><code>id</code> · <code>hogar_id</code> · <code>titulo</code> · <code>monto_estimado</code> · <code>dia_del_mes</code> · <code>cada_n_meses</code> · <code>miembro_id</code> · <code>categoria_id</code></td></tr>
             <tr><td><b>articulo_super</b></td><td>Lista del súper</td><td><code>id</code> · <code>hogar_id</code> · <code>nombre</code> · <code>cantidad</code> · <code>pasillo</code> · <code>estado</code> enum(pendiente, comprado) · <code>agregado_por</code> · <code>origen</code> enum(manual, despensa, menu)</td></tr>
@@ -870,6 +891,7 @@
           <li>Las fechas de tareas se guardan como <b>fecha</b>, no como marca de tiempo: un jueves es un jueves aunque el teléfono ande en otra zona horaria.</li>
           <li>Montos en <code>decimal(12,2)</code>, nunca en coma flotante.</li>
           <li>Borrado suave (<code>borrado_en</code>) en tareas, movimientos y antojos, para que sincronizar un borrado no destruya datos del otro dispositivo.</li>
+          <li>Como decidiste que el dinero es abierto entre ustedes, el modelo se simplifica: no hay campo de visibilidad ni reglas por movimiento. Un solo permiso: adultos ven todo, niñas no ven nada de dinero.</li>
         </ul>
       </section>
 
@@ -1000,7 +1022,8 @@
           <li>Correo y contraseña, o link mágico. Contraseñas guardadas con hash fuerte por el proveedor de autenticación — <b>nunca escribimos nuestro propio manejo de contraseñas</b>.</li>
           <li>Token de acceso de vida corta con renovación automática; token de renovación revocable desde Ajustes ("cerrar sesión en todos lados").</li>
           <li>Los tokens se guardan en el almacenamiento del navegador con la app instalada; con un backend propio se preferiría cookie <code>httpOnly</code> + <code>SameSite=Lax</code>.</li>
-          <li>Las niñas no tienen sesión propia: se cambia a su perfil dentro de la sesión de un adulto, y con PIN si lo activan. Salir de su perfil no requiere contraseña — no es una cárcel, es una vista.</li>
+          <li>Las niñas entran desde su propio dispositivo <b>sin cuenta de correo</b>: tú generas un código de un solo uso desde tu app, ella lo captura una vez en su tablet o teléfono, y ese dispositivo queda vinculado a su perfil. Después solo pide un PIN de cuatro dígitos. Puedes revocar un dispositivo desde Ajustes cuando quieras — útil si se pierde o se cambia.</li>
+          <li>La sesión de una niña está limitada por diseño: solo puede leer y palomear sus propias tareas. No es una cuenta con menos permisos, es una vista que no tiene acceso a nada más.</li>
         </ul>
 
         <h3>Roles y permisos</h3>
@@ -1011,7 +1034,7 @@
             <tr><td>Ver tareas de todo el hogar</td><td>Sí</td><td>No</td></tr>
             <tr><td>Crear, editar y borrar tareas de cualquiera</td><td>Sí</td><td>No</td></tr>
             <tr><td>Ver el resumen de dinero conjunto</td><td>Sí</td><td>No</td></tr>
-            <tr><td>Ver el detalle de gastos del otro adulto</td><td>Solo si está marcado como compartido</td><td>No</td></tr>
+            <tr><td>Ver el detalle de gastos del otro adulto</td><td>Sí — decidieron dinero abierto</td><td>No</td></tr>
             <tr><td>Invitar, exportar, borrar el hogar</td><td>Sí</td><td>No</td></tr>
           </table>
         </div>
@@ -1019,7 +1042,7 @@
         <h3>Protección de la información</h3>
         <ul>
           <li><b>Frontera por hogar:</b> cada consulta filtra por <code>hogar_id</code> en la propia base de datos. Aunque alguien manipule la aplicación, no puede leer otro hogar. Esto evita la falla más común en apps pequeñas: pedir el recurso de otro cambiando el número en la dirección.</li>
-          <li><b>Privacidad interna del dinero:</b> el detalle personal es privado por defecto y solo se comparten los totales. Es una regla en la base, no una decisión de pantalla.</li>
+          <li><b>Dinero abierto entre los dos adultos, cerrado para todo lo demás:</b> ambos ven cada movimiento, y las niñas no ven nada de dinero. La regla vive en la base de datos, no en la pantalla. Si algún día quieren un movimiento privado, se agrega un campo y se cambia la regla en un solo lugar.</li>
           <li><b>Datos de menores al mínimo:</b> nombre de pila y edad. Sin apellidos, sin escuela, sin fotos, sin ubicación, y sin ninguna medición de comportamiento.</li>
           <li><b>Fotos</b> en almacenamiento privado con enlaces firmados que caducan. Nunca públicas.</li>
           <li><b>Cifrado</b> en tránsito siempre, y en reposo por el proveedor. Respaldo diario automático más exportación manual desde la app.</li>
@@ -1043,6 +1066,7 @@
             <tr><td>Robo de sesión</td><td>Tokens de vida corta, revocables, y HTTPS obligatorio</td></tr>
             <tr><td>Averiguar qué correos existen</td><td>Mismo mensaje exista o no la cuenta</td></tr>
             <tr><td>Fugas por enlaces de fotos</td><td>Bucket privado con URL firmada de corta duración</td></tr>
+            <tr><td>Dispositivo de una niña perdido o prestado</td><td>Cada dispositivo se revoca por separado desde Ajustes, sin tocar los demás</td></tr>
             <tr><td>Datos que quedan tras una ruptura</td><td>Exportar y borrar el hogar completo desde Ajustes, sin pedir permiso al otro</td></tr>
             <tr><td>Registros con información sensible</td><td>Los logs no guardan montos, textos de mensajes ni nombres de menores</td></tr>
           </table>
@@ -1065,12 +1089,13 @@
         <div class="phase"><span class="n">Fase 3</span><div><h4>Base de datos y permisos</h4><p>Esquema completo del MVP, migraciones versionadas, seguridad por fila, datos de prueba y respaldos automáticos.</p><p class="dod">Listo cuando: una cuenta de otro hogar no puede leer ni un renglón del suyo.</p></div></div>
         <div class="phase"><span class="n">Fase 4</span><div><h4>Módulo de tareas</h4><p>Plantillas y ocurrencias, vista Hoy, vista Semana, crear con el interruptor de repetir, editar y borrar con la pregunta de alcance, mover y reasignar.</p><p class="dod">Listo cuando: cargas tu machote real y la semana siguiente se genera sola y correcta.</p></div></div>
         <div class="phase"><span class="n">Fase 5</span><div><h4>Sin conexión, tiempo real y avisos</h4><p>Cola de cambios local, sincronización con resolución de conflictos, actualización en vivo entre teléfonos, recordatorio diario y aviso agrupado.</p><p class="dod">Listo cuando: palomeas en modo avión, abres señal y aparece en el otro teléfono sin duplicados.</p></div></div>
-        <div class="phase"><span class="n">Fase 6</span><div><h4>Piloto real de dos semanas</h4><p>Ustedes dos la usan de verdad, sin agregar funciones. Se anota qué se olvidó, qué estorbó y qué nadie abrió. Se corrige eso y solo eso.</p><p class="dod">Listo cuando: los dos palomean al menos cuatro días por semana sin que nadie tenga que recordárselo.</p></div></div>
-        <div class="phase"><span class="n">Fase 7</span><div><h4>Dinero</h4><p>Movimientos, categorías, cargos fijos automáticos, resumen mío y nuestro, mes semana por semana, exportación.</p><p class="dod">Listo cuando: cierran un mes completo y los números cuadran con la realidad.</p></div></div>
-        <div class="phase"><span class="n">Fase 8</span><div><h4>Cocina</h4><p>Lista del súper offline, despensa con "se me acabó", recetario propio y menú semanal con porciones.</p><p class="dod">Listo cuando: hacen un súper completo desde la app, con los dos tachando a la vez.</p></div></div>
-        <div class="phase"><span class="n">Fase 9</span><div><h4>Nosotros</h4><p>Detalle del día con mensajes propios, antojos e historial, fechas importantes con aviso anticipado, acuerdos firmados y tarjetas para compartir por WhatsApp.</p><p class="dod">Listo cuando: la app se abre en la mañana por gusto, no por pendiente.</p></div></div>
-        <div class="phase"><span class="n">Fase 10</span><div><h4>Seguridad, auditoría y respaldo</h4><p>Revisión de permisos, registro de auditoría, exportar y borrar, límites de peticiones, monitoreo de errores y prueba de restauración de respaldo.</p><p class="dod">Listo cuando: se restaura un respaldo completo en limpio y no falta nada.</p></div></div>
-        <div class="phase"><span class="n">Fase 11</span><div><h4>Pruebas y cierre</h4><p>Pruebas automáticas de las reglas críticas (recurrencias, sincronización, permisos y montos), pruebas de extremo a extremo de los flujos B, C, D y G, y revisión de accesibilidad.</p><p class="dod">Listo cuando: se puede cambiar código sin miedo porque las pruebas avisan.</p></div></div>
+        <div class="phase"><span class="n">Fase 6</span><div><h4>La app de las niñas</h4><p>Vinculación de dispositivo por código de un solo uso, PIN, vista mínima con sus tareas del día, estrellas, y revocación de dispositivos desde Ajustes.</p><p class="dod">Listo cuando: cada una entra desde su propio aparato, palomea lo suyo, y desde tu teléfono compruebas que no alcanza ninguna otra pantalla.</p></div></div>
+        <div class="phase"><span class="n">Fase 7</span><div><h4>Dinero</h4><p>Movimientos en cuatro toques, categorías propias, cargos fijos automáticos, resumen personal y conjunto —ambos abiertos entre ustedes—, mes semana por semana y exportación.</p><p class="dod">Listo cuando: cierran un mes completo y los números cuadran con la realidad.</p></div></div>
+        <div class="phase"><span class="n">Fase 8</span><div><h4>Piloto real de dos semanas</h4><p>Los cuatro la usan de verdad, sin agregar funciones. Se anota qué se olvidó, qué estorbó y qué nadie abrió. Se corrige eso y solo eso. Es la fase que casi todos se saltan y la que decide si la app se queda.</p><p class="dod">Listo cuando: los dos adultos palomean al menos cuatro días por semana sin que nadie tenga que recordárselo, y el dinero del mes está capturado sin sesiones de ponerse al corriente.</p></div></div>
+        <div class="phase"><span class="n">Fase 9</span><div><h4>Cocina</h4><p>Lista del súper offline, despensa con "se me acabó", recetario propio y menú semanal con porciones.</p><p class="dod">Listo cuando: hacen un súper completo desde la app, con los dos tachando a la vez.</p></div></div>
+        <div class="phase"><span class="n">Fase 10</span><div><h4>Nosotros</h4><p>Detalle del día con mensajes propios, antojos e historial, fechas importantes con aviso anticipado, acuerdos firmados y tarjetas para compartir por WhatsApp.</p><p class="dod">Listo cuando: la app se abre en la mañana por gusto, no por pendiente.</p></div></div>
+        <div class="phase"><span class="n">Fase 11</span><div><h4>Seguridad, auditoría y respaldo</h4><p>Revisión de permisos, registro de auditoría, revocación de dispositivos, exportar y borrar, límites de peticiones, monitoreo de errores y prueba de restauración de respaldo.</p><p class="dod">Listo cuando: se restaura un respaldo completo en limpio y no falta nada.</p></div></div>
+        <div class="phase"><span class="n">Fase 12</span><div><h4>Pruebas y cierre</h4><p>Pruebas automáticas de las reglas críticas (recurrencias, sincronización, permisos y montos), pruebas de extremo a extremo de los flujos B, C, D y G, y revisión de accesibilidad.</p><p class="dod">Listo cuando: se puede cambiar código sin miedo porque las pruebas avisan.</p></div></div>
 
         <div class="callout ok">
           <span class="lbl">Cómo sabremos que funcionó</span>
@@ -1079,15 +1104,16 @@
       </section>
 
       <div class="final">
-        <h2>Qué necesito de ti ahora</h2>
-        <p><b>1.</b> Tu elección de nombre — o dime que le sigo con Palomita.</p>
-        <p><b>2.</b> Las respuestas de la sección 02, sobre todo las cuatro primeras: teléfonos, si tu pareja se apunta, si las niñas tienen dispositivo, y qué tanto se ven los gastos entre ustedes.</p>
-        <p><b>3.</b> Si aceptas el MVP como está, o si prefieres el intercambio de subir el dinero a la v1 y bajar la vista de niñas a la v2.</p>
-        <p><b>4.</b> Si algo de lo que marqué como "no recomendado" te importa de verdad, dímelo y lo replanteo — puedo estar equivocado sobre tu caso, pero quiero que sea una decisión tuya y no un descuido mío.</p>
+        <h2>Qué falta para empezar</h2>
+        <p>Las cuatro decisiones grandes ya están tomadas y aplicadas en este documento. Lo que sigue no me bloquea para las primeras fases, pero lo necesito antes de la fase 4:</p>
+        <p><b>1. Los nombres reales</b> de los cuatro, y la edad de cada niña.</p>
+        <p><b>2. Tu machote de verdad:</b> qué le toca a cada quien de lunes a domingo. Mándamelo como te salga, aunque sea en desorden.</p>
+        <p><b>3. Tus categorías de dinero</b> y qué gastos fijos hay, con su día del mes.</p>
+        <p><b>4. Qué teléfono usa cada quien</b> (Android o iPhone) y qué dispositivo tiene cada niña.</p>
         <p style="color:var(--ink);font-weight:600">Cuando estés de acuerdo, escribe <b>APROBADO</b> y empiezo a construir por fases, explicando cada parte.</p>
       </div>
 
-      <footer>Anteproyecto Palomita · agosto 2026 · documento de trabajo, sujeto a tus correcciones</footer>
+      <footer>Anteproyecto Juntos+ · agosto 2026 · documento de trabajo, actualizado con tus decisiones</footer>
     </main>
   </div>
 </div>

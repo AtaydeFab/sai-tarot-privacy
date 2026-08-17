@@ -1,16 +1,12 @@
-<title>Palomita</title>
+<title>Juntos+</title>
 <style>
   :root {
-    --paper:#F4F0EE;
-    --surface:#FDFBFA;
-    --surface-2:#EFE9E6;
-    --ink:#1C2427;
-    --muted:#6E7679;
-    --line:#E1D9D6;
-    --a:#B93A5B;  --a-soft:#F7E3E8;  --a-mark:#B93A5B;   /* tú */
-    --b:#2F6EB0;  --b-soft:#DEE9F6;  --b-mark:#2F6EB0;   /* tu pareja */
-    --k:#B0761A;  --k-soft:#F6EAD2;  --k-mark:#B0761A;   /* las niñas */
-    --good:#0F776D;
+    --paper:#F4F0EE; --surface:#FDFBFA; --surface-2:#EFE9E6;
+    --ink:#1C2427; --ink-2:#3A4448; --muted:#6E7679; --line:#E1D9D6;
+    --fa:#2F6EB0; --fa-soft:#DEE9F6; --fa-mark:#2F6EB0;
+    --sa:#B93A5B; --sa-soft:#F7E3E8; --sa-mark:#B93A5B;
+    --ni:#9A6712; --ni-soft:#F6EAD2; --ni-mark:#B0761A;
+    --good:#0F776D; --good-soft:#DCEDEA;
     --on-accent:#FFFFFF;
     --shadow:0 18px 40px -24px rgba(28,36,39,.45);
     --radius:16px;
@@ -21,61 +17,60 @@
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --paper:#12181A; --surface:#1A2124; --surface-2:#242C2F;
-      --ink:#EBE5E2; --muted:#98A1A3; --line:#2D3538;
-      --a:#EE8398;  --a-soft:#3A2229;  --a-mark:#D9647F;
-      --b:#79ADE8;  --b-soft:#1B2A3C;  --b-mark:#4A8BD4;
-      --k:#E0AE5C;  --k-soft:#332A18;  --k-mark:#B4862F;
-      --good:#4CBFB0;
+      --ink:#EBE5E2; --ink-2:#C8C2BF; --muted:#98A1A3; --line:#2D3538;
+      --fa:#79ADE8; --fa-soft:#1B2A3C; --fa-mark:#4A8BD4;
+      --sa:#EE8398; --sa-soft:#3A2229; --sa-mark:#D9647F;
+      --ni:#E0AE5C; --ni-soft:#332A18; --ni-mark:#B4862F;
+      --good:#4CBFB0; --good-soft:#12302C;
       --on-accent:#0C1516;
       --shadow:0 18px 40px -24px rgba(0,0,0,.8);
     }
   }
   :root[data-theme="dark"] {
     --paper:#12181A; --surface:#1A2124; --surface-2:#242C2F;
-    --ink:#EBE5E2; --muted:#98A1A3; --line:#2D3538;
-    --a:#EE8398;  --a-soft:#3A2229;  --a-mark:#D9647F;
-    --b:#79ADE8;  --b-soft:#1B2A3C;  --b-mark:#4A8BD4;
-    --k:#E0AE5C;  --k-soft:#332A18;  --k-mark:#B4862F;
-    --good:#4CBFB0;
+    --ink:#EBE5E2; --ink-2:#C8C2BF; --muted:#98A1A3; --line:#2D3538;
+    --fa:#79ADE8; --fa-soft:#1B2A3C; --fa-mark:#4A8BD4;
+    --sa:#EE8398; --sa-soft:#3A2229; --sa-mark:#D9647F;
+    --ni:#E0AE5C; --ni-soft:#332A18; --ni-mark:#B4862F;
+    --good:#4CBFB0; --good-soft:#12302C;
     --on-accent:#0C1516;
     --shadow:0 18px 40px -24px rgba(0,0,0,.8);
   }
 
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased; }
   .wrap { max-width:1080px; margin:0 auto; padding:0 24px 96px; }
-  h1,h2,h3 { font-family:var(--display); font-weight:600; text-wrap:balance; margin:0; letter-spacing:-.01em; }
+  h1,h2,h3 { font-family:var(--display); font-weight:600; margin:0; text-wrap:balance; letter-spacing:-.01em; }
   p { margin:0; }
   .eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
 
-  header.hero { padding:72px 0 18px; display:grid; gap:22px; }
-  .mark { display:flex; align-items:center; gap:12px; }
-  .mark .name { font-family:var(--display); font-size:26px; letter-spacing:-.02em; }
-  .hero h1 { font-size:clamp(36px,5.4vw,60px); line-height:1.05; max-width:18ch; }
-  .hero .lede { font-size:19.5px; color:var(--muted); max-width:58ch; }
+  header.hero { padding:74px 0 20px; display:grid; gap:22px; }
+  .mark { display:flex; align-items:center; gap:11px; }
+  .mark .name { font-family:var(--display); font-size:25px; letter-spacing:-.02em; }
+  .hero h1 { font-size:clamp(34px,5.2vw,58px); line-height:1.05; max-width:19ch; }
+  .hero .lede { font-size:19.5px; color:var(--muted); max-width:60ch; }
   .hero .lede strong { color:var(--ink); font-weight:600; }
+  .team { display:flex; gap:20px; flex-wrap:wrap; padding-top:4px; }
+  .team span { display:flex; align-items:center; gap:8px; font-size:15px; color:var(--muted); }
+  .team .av { width:26px; height:26px; }
+  .team b { color:var(--ink); font-weight:600; }
 
-  .who-row { display:flex; gap:22px; flex-wrap:wrap; margin-top:4px; }
-  .who-chip { display:flex; align-items:center; gap:8px; font-size:14.5px; color:var(--muted); }
-  .who-chip i { width:12px; height:12px; border-radius:50%; display:block; }
-  .who-chip b { color:var(--ink); font-weight:600; }
-
-  section { padding-top:66px; }
-  .sec-head { display:grid; gap:10px; margin-bottom:28px; max-width:62ch; }
-  .sec-head h2 { font-size:clamp(26px,3.4vw,34px); }
+  section { padding-top:64px; }
+  .sec-head { display:grid; gap:10px; margin-bottom:26px; max-width:62ch; }
+  .sec-head h2 { font-size:clamp(25px,3.2vw,33px); }
   .sec-head p { color:var(--muted); }
   .sec-head b { color:var(--ink); font-weight:600; }
 
-  .cards { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  .cards { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); }
   .card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; display:grid; gap:7px; align-content:start; }
   .card h3 { font-size:18px; }
   .card p { color:var(--muted); font-size:15px; }
-  .card .w { font-family:var(--mono); font-size:11.5px; color:var(--b); }
+  .card .w { font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--fa); }
 
-  .screens { display:grid; gap:52px; }
+  .screens { display:grid; gap:50px; }
   .screen-row { display:grid; gap:30px; align-items:center; grid-template-columns:minmax(0,300px) minmax(0,1fr); }
   .screen-row.pair { grid-template-columns:minmax(0,300px) minmax(0,300px) minmax(0,1fr); }
-  @media (max-width:900px) { .screen-row.pair { grid-template-columns:1fr; justify-items:start; } }
+  @media (max-width:920px) { .screen-row.pair { grid-template-columns:1fr; justify-items:start; } }
   @media (max-width:760px) { .screen-row { grid-template-columns:1fr; justify-items:start; } }
   .screen-note { display:grid; gap:10px; max-width:46ch; }
   .screen-note h3 { font-size:22px; }
@@ -89,7 +84,6 @@
   .gal-item p { font-size:14.5px; color:var(--muted); }
   .gal-item h3 { font-size:17px; }
 
-  /* teléfono */
   .phone { width:300px; background:var(--surface); border:1px solid var(--line); border-radius:36px; padding:9px; box-shadow:var(--shadow); }
   .app { background:var(--paper); border-radius:28px; overflow:hidden; font-size:13px; line-height:1.45; }
   .status { display:flex; justify-content:space-between; padding:9px 18px 3px; font-family:var(--mono); font-size:10px; color:var(--muted); }
@@ -98,37 +92,33 @@
   .app-head .s { font-size:11px; color:var(--muted); }
   .app-body { padding:0 12px 12px; display:grid; gap:8px; }
 
-  .banner { margin:0 12px 4px; padding:7px 10px; border-radius:10px; display:flex; align-items:center; gap:7px; font-size:11px; background:var(--k-soft); color:var(--k); }
-  .banner b { font-weight:600; }
-
-  .chips { display:flex; gap:6px; padding:0 4px 2px; flex-wrap:wrap; }
-  .chip { font-size:10.5px; padding:4px 9px; border-radius:999px; border:1px solid var(--line); color:var(--muted); background:var(--surface); }
-  .chip.on { background:var(--ink); color:var(--paper); border-color:var(--ink); }
-  .grp { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding:7px 4px 1px; display:flex; justify-content:space-between; }
+  .av { width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font-family:var(--mono); font-size:9px; font-weight:700; }
+  .av.fa { background:var(--fa-soft); color:var(--fa); }
+  .av.sa { background:var(--sa-soft); color:var(--sa); }
+  .av.ni { background:var(--ni-soft); color:var(--ni); }
+  .av.jt { background:var(--surface-2); color:var(--muted); }
 
   .task { width:100%; text-align:left; font:inherit; color:inherit; display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:center;
     background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:10px 11px; cursor:pointer; }
-  .task:focus-visible { outline:2px solid var(--b); outline-offset:2px; }
-  .who { width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font-size:9.5px; font-weight:700; font-family:var(--mono); }
-  .who.a { background:var(--a-soft); color:var(--a); }
-  .who.b { background:var(--b-soft); color:var(--b); }
-  .who.k { background:var(--k-soft); color:var(--k); }
+  .task:focus-visible { outline:2px solid var(--fa); outline-offset:2px; }
   .task .txt { display:grid; gap:2px; min-width:0; }
   .task .txt b { font-weight:600; font-size:13px; }
-  .task .txt small { color:var(--muted); font-size:10.5px; display:flex; align-items:center; gap:4px; }
-  .rep { font-family:var(--mono); font-size:9px; letter-spacing:.04em; color:var(--muted); border:1px solid var(--line); border-radius:5px; padding:0 4px; }
+  .task .txt small { color:var(--muted); font-size:10.5px; }
+  .rep { font-family:var(--mono); font-size:9px; color:var(--muted); border:1px solid var(--line); border-radius:5px; padding:0 4px; }
   .box { width:21px; height:21px; border-radius:7px; border:1.5px solid var(--line); display:grid; place-items:center; color:transparent; transition:.18s ease; }
   .box svg { width:12px; height:12px; }
   .task[aria-checked="true"] .box { border-color:transparent; color:var(--surface); }
-  .task[aria-checked="true"].a .box { background:var(--a-mark); }
-  .task[aria-checked="true"].b .box { background:var(--b-mark); }
-  .task[aria-checked="true"].k .box { background:var(--k-mark); }
+  .task[aria-checked="true"].fa .box { background:var(--fa-mark); }
+  .task[aria-checked="true"].sa .box { background:var(--sa-mark); }
+  .task[aria-checked="true"].ni .box { background:var(--ni-mark); }
+  .task[aria-checked="true"].jt .box { background:var(--muted); }
   .task[aria-checked="true"] .txt b { text-decoration:line-through; color:var(--muted); font-weight:500; }
-  .pill { font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase; padding:3px 7px; border-radius:999px; background:var(--k-soft); color:var(--k); }
-  .pill.a { background:var(--a-soft); color:var(--a); }
+  .pill { font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase; padding:3px 7px; border-radius:999px; background:var(--ni-soft); color:var(--ni); white-space:nowrap; }
+  .pill.new { background:var(--good-soft); color:var(--good); }
+  .grp { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding:7px 4px 1px; }
 
   .nav { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; border-top:1px solid var(--line); background:var(--surface); padding:8px 4px 12px;
-    font-size:9px; text-align:center; color:var(--muted); font-family:var(--mono); letter-spacing:.03em; }
+    font-size:9px; text-align:center; color:var(--muted); font-family:var(--mono); letter-spacing:.02em; }
   .nav div { display:grid; gap:4px; justify-items:center; }
   .nav .dot { width:5px; height:5px; border-radius:50%; background:transparent; }
   .nav .on { color:var(--ink); }
@@ -140,117 +130,62 @@
   .rule { height:1px; background:var(--line); }
   .btn { width:100%; font:inherit; font-size:11.5px; font-weight:600; cursor:pointer; background:var(--ink); color:var(--paper); border:0; border-radius:10px; padding:9px; }
   .btn.ghost { background:transparent; color:var(--muted); border:1px dashed var(--line); font-weight:400; }
-  .field { display:flex; align-items:center; gap:7px; border:1px dashed var(--line); border-radius:10px; padding:8px 10px; font-size:11px; color:var(--muted); }
+  .field { display:flex; align-items:center; gap:7px; border:1px dashed var(--line); border-radius:10px; padding:9px 10px; font-size:11.5px; color:var(--muted); }
 
-  /* switch de repetir */
+  .reminder { background:var(--sa-soft); border-radius:13px; padding:12px 13px; display:grid; gap:5px; }
+  .reminder .k { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--sa); }
+  .reminder .q { font-family:var(--display); font-size:15px; line-height:1.3; color:var(--ink); }
+
   .switch-row { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; padding:9px 0; }
   .switch-row + .switch-row { border-top:1px solid var(--line); }
   .switch-row .lbl { font-size:12px; }
   .switch-row .lbl small { display:block; color:var(--muted); font-size:10px; }
   .sw { width:36px; height:21px; border-radius:999px; background:var(--surface-2); position:relative; border:1px solid var(--line); }
   .sw::after { content:""; position:absolute; top:2px; left:2px; width:15px; height:15px; border-radius:50%; background:var(--surface); box-shadow:0 1px 2px rgba(0,0,0,.2); }
-  .sw.on { background:var(--a-mark); border-color:transparent; }
+  .sw.on { background:var(--fa-mark); border-color:transparent; }
   .sw.on::after { left:auto; right:2px; background:#fff; }
-  .seg { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:10px; overflow:hidden; font-size:11px; }
-  .seg span { padding:8px 4px; text-align:center; color:var(--muted); }
-  .seg span.on { background:var(--ink); color:var(--paper); }
 
-  /* machote semanal */
   .wk { display:grid; gap:4px; }
   .wk-row { display:grid; grid-template-columns:26px 1fr 1fr; gap:4px; align-items:stretch; }
   .wk-row .d { font-family:var(--mono); font-size:9px; text-transform:uppercase; color:var(--muted); align-self:center; }
-  .wk-row .t { font-size:9.5px; padding:5px 6px; border-radius:8px; line-height:1.25; }
-  .t.a { background:var(--a-soft); color:var(--a); }
-  .t.b { background:var(--b-soft); color:var(--b); }
-  .t.k { background:var(--k-soft); color:var(--k); }
+  .wk-row .t { font-size:9.5px; padding:5px 6px; border-radius:8px; line-height:1.3; }
+  .t.fa { background:var(--fa-soft); color:var(--fa); }
+  .t.sa { background:var(--sa-soft); color:var(--sa); }
+  .t.ni { background:var(--ni-soft); color:var(--ni); }
+  .t.jt { background:var(--surface-2); color:var(--muted); }
   .t.once { background:transparent; border:1px dashed var(--line); color:var(--muted); }
-  .t.empty { background:transparent; }
 
-  /* dinero */
-  .hero-num { font-family:var(--mono); font-size:26px; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .hero-num { font-family:var(--mono); font-size:25px; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
   .kpis { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .kpi { display:grid; gap:1px; }
-  .kpi .v { font-family:var(--mono); font-size:14.5px; font-variant-numeric:tabular-nums; }
+  .kpi .v { font-family:var(--mono); font-size:14px; font-variant-numeric:tabular-nums; }
   .kpi .l { font-size:10px; color:var(--muted); }
   .barlist { display:grid; gap:8px; }
   .barlist .row { display:grid; gap:3px; }
   .barlist .top { display:flex; justify-content:space-between; font-size:11px; }
   .barlist .top .amt { font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--muted); }
   .track { height:8px; background:var(--surface-2); border-radius:4px; overflow:hidden; }
-  .fill { height:100%; border-radius:4px; background:var(--a-mark); }
-  .fill.b { background:var(--b-mark); }
-  .fill.n { background:var(--muted); opacity:.55; }
+  .fill { height:100%; border-radius:4px; background:var(--fa-mark); display:block; }
+  .fill.sa { background:var(--sa-mark); }
+  .fill.n { background:var(--muted); opacity:.5; }
+  .fill.g { background:var(--good); }
   .stackbar { display:flex; gap:2px; height:14px; }
   .stackbar span { height:100%; }
   .stackbar span:first-child { border-radius:4px 0 0 4px; }
   .stackbar span:last-child { border-radius:0 4px 4px 0; }
   .legend { display:flex; gap:12px; flex-wrap:wrap; font-size:10.5px; color:var(--muted); }
   .legend i { width:9px; height:9px; border-radius:2px; display:inline-block; margin-right:5px; }
-  .wkbars { display:grid; gap:7px; }
-  .wkbars .r { display:grid; grid-template-columns:30px 1fr auto; gap:8px; align-items:center; font-size:10.5px; }
-  .wkbars .lbl { font-family:var(--mono); color:var(--muted); font-size:9px; text-transform:uppercase; }
-  .wkbars .bar { height:9px; background:var(--surface-2); border-radius:4px; position:relative; }
-  .wkbars .bar i { position:absolute; inset:0 auto 0 0; border-radius:4px; background:var(--muted); opacity:.6; display:block; }
-  .wkbars .net { font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--good); font-size:10px; }
   table.mini { width:100%; border-collapse:collapse; font-size:11px; }
   table.mini th { font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:400; text-align:right; padding-bottom:5px; }
   table.mini th:first-child { text-align:left; }
   table.mini td { padding:5px 0; border-top:1px solid var(--line); text-align:right; font-variant-numeric:tabular-nums; font-family:var(--mono); font-size:10.5px; }
   table.mini td:first-child { text-align:left; font-family:var(--sans); font-size:11.5px; }
 
-  /* antojos */
-  .idea { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:10px 11px; display:grid; gap:6px; }
-  .idea .t2 { font-size:12.5px; font-weight:600; }
-  .tags { display:flex; gap:4px; flex-wrap:wrap; }
-  .tag { font-family:var(--mono); font-size:8.5px; letter-spacing:.06em; text-transform:uppercase; padding:2.5px 6px; border-radius:999px; background:var(--surface-2); color:var(--muted); }
-  .tag.a { background:var(--a-soft); color:var(--a); }
-  .tag.k { background:var(--k-soft); color:var(--k); }
-  .idea.lived { background:transparent; border-style:dashed; }
-  .idea.lived .t2 { font-weight:500; color:var(--muted); }
-
-  /* chat / detalle */
-  .msg { max-width:78%; padding:8px 11px; border-radius:14px; font-size:12.5px; }
-  .msg.them { background:var(--surface); border:1px solid var(--line); border-bottom-left-radius:5px; justify-self:start; }
-  .msg.me { background:var(--a-mark); color:#fff; border-bottom-right-radius:5px; justify-self:end; }
-  .sys { justify-self:center; font-size:10.5px; color:var(--muted); font-family:var(--mono); text-align:center; }
-  .invite { border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden; }
-  .invite .top2 { padding:11px 13px 10px; display:grid; gap:3px; border-bottom:1px solid var(--line); }
-  .invite .top2 .k { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--a); }
-  .invite .top2 .t3 { font-family:var(--display); font-size:16px; }
-  .invite .top2 .d { font-size:11px; color:var(--muted); }
-  .invite .btns { display:grid; grid-template-columns:1fr 1fr; }
-  .invite .btns button { font:inherit; font-size:11.5px; padding:9px 4px; border:0; cursor:pointer; background:var(--surface); color:var(--muted); }
-  .invite .btns button:first-child { color:#fff; background:var(--a-mark); font-weight:600; }
-  .invite .btns button + button { border-left:1px solid var(--line); }
-  .love { background:var(--a-soft); border-radius:14px; padding:14px 13px; display:grid; gap:7px; }
-  .love .k { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--a); }
-  .love .q { font-family:var(--display); font-size:15px; line-height:1.35; color:var(--ink); }
-  .love .by { font-size:10.5px; color:var(--a); }
-
-  /* calendario / acuerdos */
-  .cal-row { display:grid; grid-template-columns:38px 1fr; gap:10px; padding:9px 0; }
-  .cal-row + .cal-row { border-top:1px solid var(--line); }
-  .cal-row .dt { font-family:var(--mono); font-size:10px; color:var(--muted); text-align:center; line-height:1.2; }
-  .cal-row .dt b { display:block; font-size:15px; color:var(--ink); font-weight:600; }
-  .cal-row .ev { font-size:12px; line-height:1.3; }
-  .cal-row .ev small { display:block; color:var(--muted); font-size:10.5px; }
-  .pact { background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:11px 12px; display:grid; gap:7px; }
-  .pact .q { font-family:var(--display); font-size:14px; line-height:1.3; }
-  .sig { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--muted); }
-  .sig .who { width:18px; height:18px; font-size:8.5px; }
-
-  .steps { display:grid; gap:12px; }
-  .step { display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; }
-  .step .n { font-family:var(--mono); font-size:12px; color:var(--muted); border:1px solid var(--line); border-radius:8px; padding:3px 8px; }
-  .step h3 { font-size:17.5px; margin-bottom:3px; }
-  .step p { color:var(--muted); font-size:15px; }
-
-  .closing { margin-top:60px; padding:28px 26px; border-radius:var(--radius); background:var(--surface); border:1px solid var(--line); display:grid; gap:12px; }
-  .closing h2 { font-size:24px; }
-  .closing p { color:var(--muted); font-size:16px; }
+  .closing { margin-top:60px; padding:28px 26px; border-radius:var(--radius); background:var(--surface); border:1px solid var(--line); display:grid; gap:11px; }
+  .closing h2 { font-size:23px; }
+  .closing p { color:var(--muted); font-size:15.5px; max-width:74ch; }
   .closing b { color:var(--ink); }
-  footer { margin-top:36px; color:var(--muted); font-size:13px; font-family:var(--mono); }
-
+  footer { margin-top:36px; color:var(--muted); font-size:12.5px; font-family:var(--mono); }
   @media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
 </style>
 
@@ -258,180 +193,206 @@
 
   <header class="hero">
     <div class="mark">
-      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+      <svg width="29" height="29" viewBox="0 0 30 30" aria-hidden="true">
         <circle cx="15" cy="15" r="14" fill="none" stroke="currentColor" stroke-opacity=".22"/>
         <path d="M8 15.5l4.6 4.6L22 10.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="name">Palomita</span>
+      <span class="name">Juntos+</span>
     </div>
 
-    <h1>Ustedes ponen las reglas. La app nada más se acuerda.</h1>
-    <p class="lede">Nada cambia solo, nada se decide por ustedes. Una tarea con <strong>palomita de repetir</strong> vuelve cada semana; sin palomita, es de esta semana y ya. Todo se puede editar cualquier día, y quien tenga que hacerlo lo ve en su teléfono.</p>
+    <h1>Su casa, con lo de cada quien a la vista.</h1>
+    <p class="lede">Las tareas de siempre ya vienen puestas y se palomean con un toque. Lo que sale de repente se le pasa al otro y le llega a sus pendientes. Y el dinero de los dos —lo que entra, lo que se va y lo que se ahorra— en la misma app. <strong>Todo lo que ven aquí son sus datos reales</strong>, no ejemplos.</p>
 
-    <div class="who-row">
-      <span class="who-chip"><i style="background:var(--a-mark)"></i><b>Tú</b> · pones la estructura</span>
-      <span class="who-chip"><i style="background:var(--b-mark)"></i><b>Ira</b> · pone la estructura</span>
-      <span class="who-chip"><i style="background:var(--k-mark)"></i><b>Emi y Sofi</b> · entran sábado y domingo, con lo que tú les pongas</span>
+    <div class="team">
+      <span><span class="av fa">Fa</span><b>Fabián</b></span>
+      <span><span class="av sa">Sa</span><b>Saira</b></span>
+      <span><span class="av ni">Vi</span><b>Victoria</b> · 14</span>
+      <span><span class="av ni">So</span><b>Sofía</b> · 11</span>
     </div>
   </header>
 
   <section>
     <div class="sec-head">
-      <p class="eyebrow">La regla, en tres frases</p>
-      <h2>Una tarea nace de una sola decisión</h2>
-      <p>Al crearla eliges si se repite o no. Eso es todo lo que la app necesita saber — y esa decisión se puede cambiar después, como todo aquí.</p>
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>Tres ideas y ya está</h2>
+      <p>No hay que aprender nada. Si entienden estas tres, entienden toda la app.</p>
     </div>
     <div class="cards">
-      <div class="card"><span class="w">con palomita ↻</span><h3>Se repite cada semana</h3><p>Barrer los lunes, trastes diario, lavar el sábado. Aparece sola cada semana en su día y no se borra nunca — hasta que ustedes la quiten.</p></div>
-      <div class="card"><span class="w">sin palomita</span><h3>Solo esta semana</h3><p>Llevar el carro al taller, comprar el regalo, limpiar el clóset. Se hace, se palomea y desaparece. No ensucia las semanas que vienen.</p></div>
-      <div class="card"><span class="w">siempre</span><h3>Todo es modificable</h3><p>Cambiar de día, pasarla al otro, volverla fija, quitarle lo fijo, borrarla. Ninguna tarea queda amarrada — ni las que se repiten.</p></div>
-      <div class="card"><span class="w">sábado y domingo</span><h3>Las niñas tienen su acceso</h3><p>Emi y Sofi entran con su usuario y ven solo lo que tú les pusiste ese fin de semana. Nada de dinero, nada del chat de ustedes.</p></div>
+      <div class="card"><span class="w">se repite</span><h3>Lo de siempre se pone una vez</h3><p>Hacer la comida, lavar los trastes, sacar al perro. Cada tarea trae quién la hace y cada cuándo; de ahí en adelante aparece sola. Nadie la vuelve a escribir.</p></div>
+      <div class="card"><span class="w">solo esta vez</span><h3>Lo que sale de repente</h3><p>Cambiar una bombilla, llevar el carro, bañar al perro. Se agrega sin marcar "se repite": se hace, se palomea y desaparece.</p></div>
+      <div class="card"><span class="w">se asigna</span><h3>Se le puede pasar al otro</h3><p>Saira te agrega "cambiar la bombilla" y te llega a tus pendientes. Tú le agregas "bañar al perro" y le llega a los suyos. A las niñas igual, cuando estén.</p></div>
+      <div class="card"><span class="w">se recuerda</span><h3>Y las cosas chiquitas</h3><p>"No dejar pelos en el jabón." "No dejar los zapatos regados." Aparecen de a poquito, y <b>solo en el teléfono de quien le toca</b> — nunca como lista de quejas del otro.</p></div>
     </div>
   </section>
 
   <section>
     <div class="sec-head">
-      <p class="eyebrow">Pantallas</p>
-      <h2>Cómo se vería</h2>
-      <p>Las palomitas se pueden marcar aquí mismo — pruébalas.</p>
+      <p class="eyebrow">Así se ve</p>
+      <h2>Un jueves cualquiera</h2>
+      <p>Las palomitas de esta pantalla se pueden marcar aquí mismo — pruébenlas.</p>
     </div>
 
     <div class="screens">
 
-      <!-- HOY -->
       <div class="screen-row">
         <div class="phone">
           <div class="app">
             <div class="status"><span>7:40</span><span>▮▮▮ 92%</span></div>
             <div class="app-head"><span class="t">Hoy</span><span class="s">jueves 20</span></div>
-            <div class="banner">👧 <b>Este fin de semana vienen Emi y Sofi</b> · sáb y dom</div>
             <div class="app-body">
-              <button class="task a" role="checkbox" aria-checked="false" data-owner="a" data-weight="25">
-                <span class="who a">T</span>
-                <span class="txt"><b>Barrer y trapear</b><small><span class="rep">↻</span> cada jueves</small></span>
-                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
-              </button>
-              <button class="task b" role="checkbox" aria-checked="true" data-owner="b" data-weight="20">
-                <span class="who b">I</span>
-                <span class="txt"><b>Trastes de la cena</b><small><span class="rep">↻</span> diario · hecho 21:10</small></span>
-                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
-              </button>
-              <button class="task b" role="checkbox" aria-checked="false" data-owner="b" data-weight="15">
-                <span class="who b">I</span>
-                <span class="txt"><b>Sacar la basura</b><small><span class="rep">↻</span> lunes y jueves</small></span>
-                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
-              </button>
-              <button class="task a" role="checkbox" aria-checked="false" data-owner="a" data-weight="20">
-                <span class="who a">T</span>
-                <span class="txt"><b>Llevar el carro a verificar</b><small>solo esta semana</small></span>
-                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
-              </button>
-              <div class="grp"><span>Lo que viene</span></div>
-              <div class="task" style="cursor:default">
-                <span class="who a">T</span>
-                <span class="txt"><b>Cumple de la mamá de Ira</b><small>22 ago · faltan 2 días</small></span>
-                <span class="pill">Sáb</span>
+              <div class="reminder">
+                <span class="k">Acuérdate</span>
+                <p class="q">"Dejar bien tapada la pasta."</p>
               </div>
-              <button class="btn ghost" type="button">＋ Nueva tarea</button>
+
+              <button class="task fa" role="checkbox" aria-checked="true">
+                <span class="av fa">Fa</span>
+                <span class="txt"><b>Alzar la cama</b><small><span class="rep">↻</span> diario · hecho 7:15</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <button class="task sa" role="checkbox" aria-checked="true">
+                <span class="av sa">Sa</span>
+                <span class="txt"><b>Sacar al perro en la mañana</b><small><span class="rep">↻</span> diario · hecho 7:30</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <button class="task sa" role="checkbox" aria-checked="false">
+                <span class="av sa">Sa</span>
+                <span class="txt"><b>Hacer el almuerzo</b><small><span class="rep">↻</span> diario</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <button class="task fa" role="checkbox" aria-checked="false">
+                <span class="av fa">Fa</span>
+                <span class="txt"><b>Lavar trastes del almuerzo</b><small><span class="rep">↻</span> diario</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <button class="task fa" role="checkbox" aria-checked="false">
+                <span class="av fa">Fa</span>
+                <span class="txt"><b>Darle de comer al perro</b><small>Tu semana · hasta el domingo</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <button class="task jt" role="checkbox" aria-checked="false">
+                <span class="av jt">Jt</span>
+                <span class="txt"><b>Sacar al perro en la tarde</b><small><span class="rep">↻</span> diario · de los dos</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+
+              <div class="grp">Te lo pasó Saira</div>
+              <button class="task fa" role="checkbox" aria-checked="false">
+                <span class="av fa">Fa</span>
+                <span class="txt"><b>Cambiar la bombilla del pasillo</b><small>Saira lo agregó ayer</small></span>
+                <span class="pill new">Nuevo</span>
+              </button>
+
+              <button class="btn ghost" type="button">＋ Agregar tarea o pendiente</button>
             </div>
             <div class="nav">
               <div class="on"><span class="dot"></span>Hoy</div>
               <div><span class="dot"></span>Semana</div>
-              <div><span class="dot"></span>Cocina</div>
               <div><span class="dot"></span>Dinero</div>
-              <div><span class="dot"></span>Nosotros</div>
+              <div><span class="dot"></span>Recordar</div>
+              <div><span class="dot"></span>Casa</div>
             </div>
           </div>
         </div>
         <div class="screen-note">
-          <p class="eyebrow">Pestaña 1</p>
-          <h3>Hoy — lo del día, de los dos</h3>
-          <p>Las fijas ya vienen puestas (traen su ↻); las sueltas se ven distintas, sin marca, porque se van cuando se hacen. Se palomea con un toque y al otro le llega el aviso.</p>
+          <p class="eyebrow">La pantalla de todos los días</p>
+          <h3>Lo del día, de los cuatro</h3>
+          <p>Se ve lo de cada quien, no nada más lo propio. La idea no es vigilarse: es que nadie tenga que preguntar si ya se hizo algo.</p>
           <ul>
-            <li><b>El aviso del finde no cambia nada</b>: es solo un recordatorio de que sábado y domingo vienen las niñas. La app no se transforma sola — tú decides si les pones algo.</li>
-            <li>Deslizar: <b>"hoy no puedo, ¿la tomas tú?"</b>. Pasa como petición y queda registrado quién cubrió.</li>
-            <li>Nada en rojo. Lo atrasado se pone ámbar y ahí se queda, sin regaños.</li>
+            <li>Las de siempre traen <b>↻</b>. Las que salieron de repente no traen nada, porque se van cuando se hacen.</li>
+            <li><b>De los dos:</b> sacar al perro en la tarde lo palomea cualquiera y queda anotado quién fue.</li>
+            <li><b>La semana del perro</b> se alterna sola cada lunes. Si a alguien se le pasa su semana, se recorre, no se pierde.</li>
+            <li>Si hoy no se puede, se desliza: <b>"hoy no puedo, ¿la tomas tú?"</b> Le llega al otro como petición, no como falla.</li>
           </ul>
         </div>
       </div>
 
-      <!-- NUEVA TAREA + SEMANA -->
       <div class="screen-row pair">
         <div class="phone">
           <div class="app">
-            <div class="status"><span>7:44</span><span>▮▮▮ 92%</span></div>
-            <div class="app-head"><span class="t">Nueva tarea</span><span class="s">cancelar</span></div>
+            <div class="status"><span>20:02</span><span>▮▮▮ 61%</span></div>
+            <div class="app-head"><span class="t">Semana</span><span class="s">18 – 24 ago</span></div>
             <div class="app-body">
               <div class="panel">
-                <div class="field" style="border-style:solid;color:var(--ink)">Lavar y tender la ropa</div>
-                <div class="switch-row">
-                  <span class="lbl">¿De quién es?<small>Se puede cambiar después</small></span>
-                  <span style="display:flex;gap:5px"><span class="who a">T</span><span class="who b" style="opacity:.35">I</span><span class="who k" style="opacity:.35">E</span></span>
+                <div class="wk">
+                  <div class="wk-row"><span class="d">Lun</span><span class="t sa">Comidas · trapear · perro am</span><span class="t fa">Trastes ×3 · cama · barrer · basura</span></div>
+                  <div class="wk-row"><span class="d">Mar</span><span class="t sa">Comidas · trapear · perro am</span><span class="t fa">Trastes ×3 · cama · barrer · basura</span></div>
+                  <div class="wk-row"><span class="d">Mié</span><span class="t sa">Comidas · trapear · perro am</span><span class="t fa">Trastes ×3 · cama · barrer · basura</span></div>
+                  <div class="wk-row"><span class="d">Jue</span><span class="t sa">Comidas · trapear · perro am</span><span class="t fa">＋ bombilla del pasillo</span></div>
+                  <div class="wk-row"><span class="d">Vie</span><span class="t sa">Comidas · trapear · perro am</span><span class="t fa">Trastes ×3 · cama · barrer · basura</span></div>
+                  <div class="wk-row"><span class="d">Sáb</span><span class="t ni">Vienen Victoria y Sofía</span><span class="t once">Sin tareas puestas aún</span></div>
+                  <div class="wk-row"><span class="d">Dom</span><span class="t sa">Comidas · trapear · perro am</span><span class="t fa">Trastes ×3 · cama · barrer</span></div>
                 </div>
-                <div class="switch-row">
-                  <span class="lbl">¿Qué día?<small>Sábado</small></span>
-                  <span class="note">Cambiar</span>
-                </div>
-                <div class="switch-row">
-                  <span class="lbl">Se repite cada semana<small>Vuelve sola cada sábado y no se borra</small></span>
-                  <span class="sw on"></span>
-                </div>
+                <div class="rule"></div>
+                <p class="note">Todos los días también: sacar al perro en la tarde (de los dos) y darle de comer (semana de Fabián).</p>
               </div>
               <div class="panel">
-                <span class="k">Si la apagas</span>
-                <p class="note">La tarea aparece solo este sábado. Cuando la palomees, se va y no vuelve la próxima semana.</p>
+                <span class="k">De esta semana, sin día fijo</span>
+                <div style="display:grid;gap:6px">
+                  <span style="font-size:11.5px"><span class="av sa" style="display:inline-grid;vertical-align:-6px;margin-right:5px">Sa</span>Lavar el baño — <b>elige tu día</b></span>
+                  <span style="font-size:11.5px"><span class="av fa" style="display:inline-grid;vertical-align:-6px;margin-right:5px">Fa</span>Lavar la ropa — <b>elige tus días</b></span>
+                </div>
+                <p class="note">Se tienen que hacer esta semana, pero cada quien decide cuándo. Si llega el domingo sin hacerse, la app lo recuerda una vez, sin regaño.</p>
               </div>
-              <button class="btn" type="button">Guardar</button>
             </div>
             <div class="nav">
-              <div class="on"><span class="dot"></span>Hoy</div>
-              <div><span class="dot"></span>Semana</div>
-              <div><span class="dot"></span>Cocina</div>
+              <div><span class="dot"></span>Hoy</div>
+              <div class="on"><span class="dot"></span>Semana</div>
               <div><span class="dot"></span>Dinero</div>
-              <div><span class="dot"></span>Nosotros</div>
+              <div><span class="dot"></span>Recordar</div>
+              <div><span class="dot"></span>Casa</div>
             </div>
           </div>
         </div>
 
         <div class="phone">
           <div class="app">
-            <div class="status"><span>20:02</span><span>▮▮▮ 61%</span></div>
-            <div class="app-head"><span class="t">Semana</span><span class="s">17 – 23 ago</span></div>
+            <div class="status"><span>20:05</span><span>▮▮▮ 60%</span></div>
+            <div class="app-head"><span class="t">Nuevo</span><span class="s">cancelar</span></div>
             <div class="app-body">
               <div class="panel">
-                <div class="wk">
-                  <div class="wk-row"><span class="d">Lun</span><span class="t a">Barrer ↻</span><span class="t b">Trastes ↻ · basura ↻</span></div>
-                  <div class="wk-row"><span class="d">Mar</span><span class="t a">Baños ↻</span><span class="t b">Trastes ↻</span></div>
-                  <div class="wk-row"><span class="d">Mié</span><span class="t a">Trastes ↻</span><span class="t b">Trapear ↻</span></div>
-                  <div class="wk-row"><span class="d">Jue</span><span class="t a">Barrer ↻ · verificar carro</span><span class="t b">Trastes ↻ · basura ↻</span></div>
-                  <div class="wk-row"><span class="d">Vie</span><span class="t a">Cocinar ↻</span><span class="t b">Trastes ↻</span></div>
-                  <div class="wk-row"><span class="d">Sáb</span><span class="t a">Lavar y tender ↻</span><span class="t k">Emi: su cuarto<br>Sofi: juguetes</span></div>
-                  <div class="wk-row"><span class="d">Dom</span><span class="t b">Recoger ropa ↻ · súper ↻</span><span class="t once">Comida en casa de tu mamá</span></div>
+                <div class="field" style="border-style:solid;color:var(--ink)">Bañar al perro</div>
+                <div class="switch-row">
+                  <span class="lbl">¿Para quién?<small>Le llega a sus pendientes</small></span>
+                  <span style="display:flex;gap:5px">
+                    <span class="av fa" style="opacity:.3">Fa</span><span class="av sa">Sa</span>
+                    <span class="av ni" style="opacity:.3">Vi</span><span class="av ni" style="opacity:.3">So</span>
+                  </span>
                 </div>
-                <div class="rule"></div>
-                <p class="note">↻ se repite · sin marca es solo de esta semana · toca cualquiera para moverla, pasarla o borrarla</p>
+                <div class="switch-row">
+                  <span class="lbl">¿Cuándo?<small>Sábado 23</small></span>
+                  <span class="note">Cambiar</span>
+                </div>
+                <div class="switch-row">
+                  <span class="lbl">Se repite cada semana<small>Apagado: es solo por esta vez</small></span>
+                  <span class="sw"></span>
+                </div>
               </div>
-              <button class="btn ghost" type="button">Copiar la semana pasada</button>
+              <div class="panel">
+                <span class="k">Le va a llegar así</span>
+                <p style="font-size:11.5px">📌 <b>Fabián te pasó un pendiente</b><br>Bañar al perro · sábado</p>
+                <p class="note">Saira puede hacerlo, moverlo de día o decir que no puede. Nada queda "impuesto" en silencio.</p>
+              </div>
+              <button class="btn" type="button">Pasárselo a Saira</button>
             </div>
             <div class="nav">
-              <div><span class="dot"></span>Hoy</div>
-              <div class="on"><span class="dot"></span>Semana</div>
-              <div><span class="dot"></span>Cocina</div>
+              <div class="on"><span class="dot"></span>Hoy</div>
+              <div><span class="dot"></span>Semana</div>
               <div><span class="dot"></span>Dinero</div>
-              <div><span class="dot"></span>Nosotros</div>
+              <div><span class="dot"></span>Recordar</div>
+              <div><span class="dot"></span>Casa</div>
             </div>
           </div>
         </div>
 
         <div class="screen-note">
-          <p class="eyebrow">Pestaña 2 · el corazón del sistema</p>
-          <h3>La palomita de repetir</h3>
-          <p>Crear una tarea son tres toques: de quién es, qué día, y si se repite. Ese último switch es toda la diferencia entre tu machote fijo y los pendientes sueltos de la semana.</p>
+          <p class="eyebrow">La semana y los pendientes</p>
+          <h3>Todo se puede mover</h3>
+          <p>La semana ya viene armada con lo de siempre. Encima se le agrega lo que salga, para uno mismo o para el otro.</p>
           <ul>
-            <li><b>La vista Semana es tu machote completo</b>, de lunes a domingo, con lo de los tres. De un vistazo se ve si un día quedó cargado para alguien.</li>
-            <li><b>A las niñas les pones tareas igual que a ustedes</b>, solo que en sábado o domingo. Si un finde no les pones nada, no les aparece nada.</li>
-            <li><b>Nada se borra por error</b>: quitar una tarea fija pregunta si es solo por esta semana o para siempre.</li>
-            <li>Un botón para <b>copiar la semana pasada</b> cuando fue una semana rara y quieren repetirla tal cual.</li>
+            <li><b>Sin día fijo:</b> lavar la ropa y lavar el baño se tienen que hacer en la semana, pero quien las tiene decide qué día — y la ropa puede tomar dos o tres días sin que la app la marque como atrasada.</li>
+            <li><b>Pasarle algo a alguien</b> son tres toques. Le llega con aviso y aparece en sus pendientes, con la puerta abierta a moverlo o decir que no puede.</li>
+            <li><b>Los sábados y domingos que vienen las niñas</b>, se les asigna a mano lo que toque: recoger la mesa, su cuarto, lo que sea. No tienen nada fijo porque no vienen todos los fines.</li>
           </ul>
         </div>
       </div>
@@ -442,8 +403,8 @@
   <section>
     <div class="sec-head">
       <p class="eyebrow">Dinero</p>
-      <h2>Cada quien ve lo suyo. Los dos ven el total.</h2>
-      <p>No es partir cuentas ni cobrarse: es <b>ver a dónde se está yendo</b>. Cada uno registra lo que le entró y lo que ha pagado, ve su propio resumen — y arriba de los dos hay un resumen conjunto donde se nota cómo va el mes.</p>
+      <h2>Lo que entra, lo que se va y lo que se ahorra</h2>
+      <p>Los dos ven todo. No es para cobrarse nada ni para partir cuentas: es para saber en qué se está yendo el mes. Los fijos —renta, luz, internet, pensión y el ahorro— entran solos y solo hay que confirmarlos.</p>
     </div>
 
     <div class="screens">
@@ -452,100 +413,99 @@
         <div class="phone">
           <div class="app">
             <div class="status"><span>13:20</span><span>▮▮▮ 66%</span></div>
-            <div class="app-head"><span class="t">Mi dinero</span><span class="s">agosto</span></div>
+            <div class="app-head"><span class="t">Nuestro</span><span class="s">agosto</span></div>
             <div class="app-body">
-              <div class="chips"><span class="chip on">Mío</span><span class="chip">Nuestro</span></div>
               <div class="panel">
-                <span class="k">Me queda del mes</span>
-                <span class="hero-num" style="color:var(--good)">$4,860</span>
+                <span class="k">Nos queda del mes</span>
+                <span class="hero-num" style="color:var(--good)">$13,650</span>
                 <div class="kpis">
-                  <div class="kpi"><span class="v">$12,800</span><span class="l">Me entró</span></div>
-                  <div class="kpi"><span class="v">$7,940</span><span class="l">He pagado</span></div>
+                  <div class="kpi"><span class="v">$37,800</span><span class="l">Entró</span></div>
+                  <div class="kpi"><span class="v">$24,150</span><span class="l">Salió</span></div>
                 </div>
               </div>
+
               <div class="panel">
-                <span class="k">En qué se me fue</span>
+                <span class="k">En qué se fue</span>
                 <div class="barlist">
-                  <div class="row"><div class="top"><span>Casa y servicios</span><span class="amt">$4,000</span></div><div class="track"><span class="fill" style="width:100%;display:block"></span></div></div>
-                  <div class="row"><div class="top"><span>Súper</span><span class="amt">$1,820</span></div><div class="track"><span class="fill" style="width:46%;display:block"></span></div></div>
-                  <div class="row"><div class="top"><span>Escuela de las niñas</span><span class="amt">$1,200</span></div><div class="track"><span class="fill" style="width:30%;display:block"></span></div></div>
-                  <div class="row"><div class="top"><span>Salidas</span><span class="amt">$620</span></div><div class="track"><span class="fill" style="width:16%;display:block"></span></div></div>
-                  <div class="row"><div class="top"><span>Transporte</span><span class="amt">$300</span></div><div class="track"><span class="fill" style="width:8%;display:block"></span></div></div>
+                  <div class="row"><div class="top"><span>Ahorro</span><span class="amt">$8,000</span></div><div class="track"><span class="fill g" style="width:100%"></span></div></div>
+                  <div class="row"><div class="top"><span>Pensión de las niñas</span><span class="amt">$6,000</span></div><div class="track"><span class="fill n" style="width:75%"></span></div></div>
+                  <div class="row"><div class="top"><span>Renta</span><span class="amt">$4,500</span></div><div class="track"><span class="fill n" style="width:56%"></span></div></div>
+                  <div class="row"><div class="top"><span>Súper</span><span class="amt">$3,200</span></div><div class="track"><span class="fill n" style="width:40%"></span></div></div>
+                  <div class="row"><div class="top"><span>Luz e internet</span><span class="amt">$1,050</span></div><div class="track"><span class="fill n" style="width:13%"></span></div></div>
+                  <div class="row"><div class="top"><span>Comidas fuera y salidas</span><span class="amt">$1,400</span></div><div class="track"><span class="fill n" style="width:17%"></span></div></div>
                 </div>
-                <p class="note">Solo tus movimientos. Ira ve los suyos igual, por su lado.</p>
               </div>
-              <button class="btn" type="button">＋ Registrar movimiento</button>
+
+              <div class="panel">
+                <span class="k">Quién ha pagado qué</span>
+                <div class="stackbar" role="img" aria-label="Fabián pagó 15,400 pesos y Saira 8,750 pesos">
+                  <span style="background:var(--fa-mark);width:64%"></span>
+                  <span style="background:var(--sa-mark);width:36%"></span>
+                </div>
+                <div class="legend"><span><i style="background:var(--fa-mark)"></i>Fabián $15,400</span><span><i style="background:var(--sa-mark)"></i>Saira $8,750</span></div>
+                <p class="note">Sin deudas ni cobros: es solo la foto de cómo salió el mes.</p>
+              </div>
             </div>
             <div class="nav">
               <div><span class="dot"></span>Hoy</div>
               <div><span class="dot"></span>Semana</div>
-              <div><span class="dot"></span>Cocina</div>
               <div class="on"><span class="dot"></span>Dinero</div>
-              <div><span class="dot"></span>Nosotros</div>
+              <div><span class="dot"></span>Recordar</div>
+              <div><span class="dot"></span>Casa</div>
             </div>
           </div>
         </div>
 
         <div class="phone">
           <div class="app">
-            <div class="status"><span>13:21</span><span>▮▮▮ 66%</span></div>
-            <div class="app-head"><span class="t">Nuestro dinero</span><span class="s">agosto</span></div>
+            <div class="status"><span>13:22</span><span>▮▮▮ 65%</span></div>
+            <div class="app-head"><span class="t">Mi dinero</span><span class="s">Saira · agosto</span></div>
             <div class="app-body">
-              <div class="chips"><span class="chip">Mío</span><span class="chip on">Nuestro</span></div>
               <div class="panel">
-                <span class="k">Nos queda del mes</span>
-                <span class="hero-num" style="color:var(--good)">$8,130</span>
-                <div class="kpis">
-                  <div class="kpi"><span class="v">$22,400</span><span class="l">Entró entre los dos</span></div>
-                  <div class="kpi"><span class="v">$14,270</span><span class="l">Salió</span></div>
-                </div>
+                <span class="k">Mi meta de la semana</span>
+                <div class="track" style="height:12px"><span class="fill sa" style="width:62%"></span></div>
+                <p style="font-size:12.5px"><b>$2,800</b> de $4,500 · faltan 3 días</p>
+                <p class="note">Como el ingreso es variable, la app no lo da por hecho: se registra lo que va entrando y la meta queda de referencia.</p>
               </div>
               <div class="panel">
-                <span class="k">Quién ha pagado qué</span>
-                <div class="stackbar" role="img" aria-label="Tú pagaste 7940 pesos, Ira 6330 pesos">
-                  <span style="background:var(--a-mark);width:56%"></span>
-                  <span style="background:var(--b-mark);width:44%"></span>
+                <span class="k">Este mes</span>
+                <div class="kpis">
+                  <div class="kpi"><span class="v">$13,200</span><span class="l">Me entró</span></div>
+                  <div class="kpi"><span class="v">$8,750</span><span class="l">He pagado</span></div>
                 </div>
-                <div class="legend"><span><i style="background:var(--a-mark)"></i>Tú $7,940</span><span><i style="background:var(--b-mark)"></i>Ira $6,330</span></div>
+                <div class="rule"></div>
                 <table class="mini">
-                  <tr><th>Categoría</th><th>Tú</th><th>Ira</th></tr>
-                  <tr><td>Casa</td><td>4,000</td><td>2,500</td></tr>
-                  <tr><td>Súper</td><td>1,820</td><td>1,420</td></tr>
-                  <tr><td>Escuela</td><td>1,200</td><td>600</td></tr>
-                  <tr><td>Salidas</td><td>620</td><td>530</td></tr>
+                  <tr><td>Ahorro</td><td>4,000</td></tr>
+                  <tr><td>Renta (mi parte)</td><td>2,000</td></tr>
+                  <tr><td>Internet</td><td>450</td></tr>
+                  <tr><td>Súper y salidas</td><td>2,300</td></tr>
                 </table>
               </div>
               <div class="panel">
-                <span class="k">Semana por semana</span>
-                <div class="wkbars">
-                  <div class="r"><span class="lbl">Sem 1</span><span class="bar"><i style="width:70%"></i></span><span class="net">+1,700</span></div>
-                  <div class="r"><span class="lbl">Sem 2</span><span class="bar"><i style="width:50%"></i></span><span class="net">+2,800</span></div>
-                  <div class="r"><span class="lbl">Sem 3</span><span class="bar"><i style="width:73%"></i></span><span class="net">+1,500</span></div>
-                  <div class="r"><span class="lbl">Sem 4</span><span class="bar"><i style="width:62%"></i></span><span class="net">+2,130</span></div>
-                </div>
-                <p class="note">La barra es lo que se gastó de lo que entró esa semana. A la derecha, lo que sobró.</p>
+                <span class="k">Fijos que entran solos</span>
+                <p style="font-size:11.5px">Renta día 6 · Internet día 10 · Ahorro cada quincena</p>
+                <p class="note">Solo hay que confirmarlos. Lo demás se registra en cuatro toques cuando pasa.</p>
               </div>
             </div>
             <div class="nav">
               <div><span class="dot"></span>Hoy</div>
               <div><span class="dot"></span>Semana</div>
-              <div><span class="dot"></span>Cocina</div>
               <div class="on"><span class="dot"></span>Dinero</div>
-              <div><span class="dot"></span>Nosotros</div>
+              <div><span class="dot"></span>Recordar</div>
+              <div><span class="dot"></span>Casa</div>
             </div>
           </div>
         </div>
 
         <div class="screen-note">
-          <p class="eyebrow">Pestaña 4</p>
-          <h3>Dos vistas del mismo dinero</h3>
-          <p>Registrar un movimiento son cuatro toques: gasté o me pagaron, cuánto, de qué fue, y ya. Si a Ira le pagan por semana, mete su depósito cada semana; si a ti te pagan al mes, lo metes una vez.</p>
+          <p class="eyebrow">Con sus números de verdad</p>
+          <h3>El mes completo, sin hojas de cálculo</h3>
+          <p>Fabián: $12,300 a la quincena, con $3,000 de pensión que sale fijo. Saira: meta de $4,500 a la semana, que se registra conforme entra. Ahorro: $2,000 cada uno por quincena.</p>
           <ul>
-            <li><b>Mío</b>: lo que me entró, lo que llevo pagado y en qué se me fue. Es tu vista privada — Ira ve la suya.</li>
-            <li><b>Nuestro</b>: lo que entró y salió entre los dos, quién pagó qué, y cómo se va cada semana.</li>
-            <li><b>Sin cobrarse nada.</b> La app nunca dice "me debes". Muestra los números y ustedes deciden qué hacer con ellos.</li>
-            <li>Lo repetido se puede dejar fijo: renta el 1, escuela el 5, luz cada dos meses — así el mes ya nace armado.</li>
-            <li>Cada movimiento puede llevar foto del ticket, para no discutir de memoria.</li>
+            <li><b>Los fijos no se capturan</b>: renta el 6, internet el 10, luz cada dos meses, ahorro cada quincena. Solo se confirman.</li>
+            <li><b>El ahorro cuenta como gasto fijo</b>, no como lo que sobró. Así se aparta primero y no se gasta sin querer.</li>
+            <li><b>La meta de Saira es meta, no promesa.</b> La app nunca da por hecho un ingreso variable: enseña lo que de verdad entró y qué tanto falta.</li>
+            <li>Cada gasto puede llevar foto del ticket, para no discutir de memoria.</li>
           </ul>
         </div>
 
@@ -555,9 +515,8 @@
 
   <section>
     <div class="sec-head">
-      <p class="eyebrow">Pestaña 5 · Nosotros</p>
-      <h2>Lo que hace que la app se abra por gusto</h2>
-      <p>Aquí vive todo lo que no es obligación: el detalle del día, los antojos guardados, las fechas que importan, la cita del viernes y los acuerdos.</p>
+      <p class="eyebrow">Lo demás</p>
+      <h2>Recordatorios y los fines de semana</h2>
     </div>
 
     <div class="gallery">
@@ -565,230 +524,110 @@
       <div class="gal-item">
         <div class="phone">
           <div class="app">
-            <div class="status"><span>6:58</span><span>▮▮▮ 100%</span></div>
-            <div class="app-head"><span class="t">Buenos días</span><span class="s">jueves</span></div>
+            <div class="status"><span>8:10</span><span>▮▮▮ 88%</span></div>
+            <div class="app-head"><span class="t">Recordar</span><span class="s">los míos</span></div>
             <div class="app-body">
-              <div class="love">
-                <span class="k">Detalle del día</span>
-                <p class="q">"Gracias por aguantarme cuando ando de malas. Hoy te toca café en la cama, pero mañana."</p>
-                <span class="by">— Ira, lo dejó el domingo</span>
+              <div class="reminder">
+                <span class="k">Hoy</span>
+                <p class="q">"No dejar pelos en el jabón."</p>
               </div>
               <div class="panel">
-                <span class="k">Hace un año</span>
-                <p style="font-size:12px">La feria del pueblo con las niñas · ★★★★☆</p>
-                <p class="note">"Emi no se bajaba del juego"</p>
+                <span class="k">Mis recordatorios</span>
+                <p style="font-size:12px">· No dejar pelos en el jabón</p>
+                <p style="font-size:12px">· Dejar bien tapada la pasta</p>
+                <div class="rule"></div>
+                <p class="note">Solo tú los ves. Saira ve los suyos en su teléfono.</p>
               </div>
               <div class="panel">
-                <span class="k">Para platicar hoy</span>
-                <p style="font-size:12px">¿Qué es lo que más te gusta de cómo estamos viviendo ahorita?</p>
+                <span class="k">De esta semana</span>
+                <p style="font-size:12px">· El viernes viene el del gas</p>
+                <p class="note">Se va solo cuando pasa el viernes.</p>
               </div>
-              <button class="btn ghost" type="button">＋ Dejarle un mensaje para otro día</button>
+              <button class="btn ghost" type="button">＋ Proponerle uno a Saira</button>
             </div>
-            <div class="nav"><div><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div><span class="dot"></span>Cocina</div><div><span class="dot"></span>Dinero</div><div class="on"><span class="dot"></span>Nosotros</div></div>
+            <div class="nav"><div><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div><span class="dot"></span>Dinero</div><div class="on"><span class="dot"></span>Recordar</div><div><span class="dot"></span>Casa</div></div>
           </div>
         </div>
-        <h3>El detalle del día</h3>
-        <p>Al abrir la app, algo bonito antes que la lista de pendientes. Lo mejor: <b>los mensajes los escriben ustedes</b>, con antelación, y la app los va soltando de a uno. Cuando el banco se vacía, avisa en secreto: "a Ira le quedan 2 mensajes tuyos".</p>
-      </div>
-
-      <div class="gal-item">
-        <div class="phone">
-          <div class="app">
-            <div class="status"><span>22:40</span><span>▮▮▮ 33%</span></div>
-            <div class="app-head"><span class="t">Antojos</span><span class="s">12 pendientes</span></div>
-            <div class="app-body">
-              <div class="chips"><span class="chip on">Todo</span><span class="chip">Comer</span><span class="chip">Salir</span><span class="chip">Con las niñas</span></div>
-              <div class="idea"><span class="t2">Taquería de la Reforma</span><div class="tags"><span class="tag">Comer</span><span class="tag">Barato</span><span class="tag">Cerca</span></div><span class="note">Ira lo vio el 12 ago · "se veía buenísimo"</span></div>
-              <div class="idea"><span class="t2">Cena en el mirador</span><div class="tags"><span class="tag a">Cita</span><span class="tag">Noche</span><span class="tag">Especial</span></div><span class="note">Tú lo guardaste · para el aniversario</span></div>
-              <div class="idea"><span class="t2">Museo del papalote</span><div class="tags"><span class="tag k">Con las niñas</span><span class="tag">Domingo</span></div><span class="note">Sofi lo pidió</span></div>
-              <div class="grp"><span>Ya lo vivimos · 23</span></div>
-              <div class="idea lived"><span class="t2">Kolobok · cena del viernes</span><span class="note">15 ago · ★★★★★ "la pasamos bien bonito"</span></div>
-              <div class="idea lived"><span class="t2">Feria del pueblo</span><span class="note">3 ago · ★★★★☆ con las niñas</span></div>
-            </div>
-            <div class="nav"><div><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div><span class="dot"></span>Cocina</div><div><span class="dot"></span>Dinero</div><div class="on"><span class="dot"></span>Nosotros</div></div>
-          </div>
-        </div>
-        <h3>Antojos que se vuelven historial</h3>
-        <p>Cada lugar que les llamó la atención se guarda en dos toques con etiquetas. Cuando toca organizar una salida, no partes de cero. Y lo que ya vivieron no se borra: pasa a historial con fecha, estrellas y una línea.</p>
-      </div>
-
-      <div class="gal-item">
-        <div class="phone">
-          <div class="app">
-            <div class="status"><span>20:14</span><span>▮▮▮ 78%</span></div>
-            <div class="app-head"><span class="t">Ira</span><span class="s">en línea</span></div>
-            <div class="app-body" style="gap:7px">
-              <div class="msg them">¿Vamos el viernes a algún lado? 👀</div>
-              <div class="invite">
-                <div class="top2">
-                  <span class="k">Invitación · Cita</span>
-                  <span class="t3">Cena en el mirador</span>
-                  <span class="d">Vie 3 sep · 8:30 pm · sin niñas, ese finde no vienen</span>
-                </div>
-                <div class="btns"><button type="button">Va, ahí nos vemos</button><button type="button">Otro día</button></div>
-              </div>
-              <div class="msg them">Ay sí 🥹 llevo semanas queriendo ir</div>
-              <div class="sys">Ira palomeó "Lavar y tender"</div>
-              <div class="msg me">Gracias, de verdad 💛</div>
-            </div>
-            <div class="nav"><div><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div><span class="dot"></span>Cocina</div><div><span class="dot"></span>Dinero</div><div class="on"><span class="dot"></span>Nosotros</div></div>
-          </div>
-        </div>
-        <h3>Chat con tarjetas</h3>
-        <p>Sí viven en la misma casa, pero la cita queda por escrito con hora y detalles, y al aceptar entra al calendario de los dos. También se mandan "gracias" y acuerdos para firmar.</p>
-      </div>
-
-      <div class="gal-item">
-        <div class="phone">
-          <div class="app">
-            <div class="status"><span>9:12</span><span>▮▮▮ 88%</span></div>
-            <div class="app-head"><span class="t">Fechas</span><span class="s">próximos 60 días</span></div>
-            <div class="app-body">
-              <div class="panel">
-                <div class="cal-row"><span class="dt"><b>22</b>ago</span><span class="ev">Cumple de la mamá de Ira<small>Avisado desde el 17 · ¿qué le llevamos?</small></span></div>
-                <div class="cal-row"><span class="dt"><b>29</b>ago</span><span class="ev">Junta escolar de Emi<small>6 pm · va Ira</small></span></div>
-                <div class="cal-row"><span class="dt"><b>3</b>sep</span><span class="ev">Nuestro aniversario · 2 años<small>Idea guardada: el mirador</small></span></div>
-                <div class="cal-row"><span class="dt"><b>14</b>sep</span><span class="ev">Cumple de Sofi · 7 años<small>Empezar a planear el 20 de agosto</small></span></div>
-                <div class="cal-row"><span class="dt"><b>19</b>sep</span><span class="ev">Pago de la escuela<small>$1,800 · entra a Dinero</small></span></div>
-              </div>
-              <button class="btn ghost" type="button">＋ Nueva fecha importante</button>
-            </div>
-            <div class="nav"><div><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div><span class="dot"></span>Cocina</div><div><span class="dot"></span>Dinero</div><div class="on"><span class="dot"></span>Nosotros</div></div>
-          </div>
-        </div>
-        <h3>Fechas importantes</h3>
-        <p>Cumpleaños y aniversarios se repiten solos cada año. Lo clave es el <b>aviso anticipado</b>: te enteras cinco días antes, cuando todavía puedes hacer algo — no el mismo día.</p>
-      </div>
-
-      <div class="gal-item">
-        <div class="phone">
-          <div class="app">
-            <div class="status"><span>19:30</span><span>▮▮▮ 48%</span></div>
-            <div class="app-head"><span class="t">Cocina</span><span class="s">semana del 24</span></div>
-            <div class="app-body">
-              <div class="chips"><span class="chip on">Menú</span><span class="chip">Súper</span><span class="chip">Despensa</span></div>
-              <div class="panel">
-                <span class="k">Menú de la semana</span>
-                <table class="mini">
-                  <tr><td>Lun</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Pollo al horno</td><td>×2</td></tr>
-                  <tr><td>Mar</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Tinga · sobra del lunes</td><td>×2</td></tr>
-                  <tr><td>Mié</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Pasta con champiñones</td><td>×2</td></tr>
-                  <tr><td>Jue</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Caldo de verduras</td><td>×2</td></tr>
-                  <tr><td>Vie</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Pizza casera</td><td>×2</td></tr>
-                  <tr><td>Sáb</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Hot cakes · niñas</td><td>×4</td></tr>
-                  <tr><td>Dom</td><td style="text-align:left;font-family:var(--sans);font-size:11px">Milanesas · niñas</td><td>×4</td></tr>
-                </table>
-              </div>
-              <div class="panel">
-                <span class="k">Sugerencia</span>
-                <p style="font-size:11.5px">Tienes arroz, jitomate y pollo. Con $60 más sale <b>arroz rojo con pollo</b> para el martes.</p>
-              </div>
-              <button class="btn" type="button">Armar lista del súper · 21 cosas</button>
-            </div>
-            <div class="nav"><div><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div class="on"><span class="dot"></span>Cocina</div><div><span class="dot"></span>Dinero</div><div><span class="dot"></span>Nosotros</div></div>
-          </div>
-        </div>
-        <h3>Menú y súper</h3>
-        <p>El menú se arma del recetario de ustedes y marca porciones dobles el sábado y domingo. De ahí sale la lista del súper sola, ordenada por pasillo, más lo que hayan marcado como "se me acabó" durante la semana.</p>
+        <h3>Las cosas chiquitas</h3>
+        <p>Cada quien ve <b>solo los suyos</b>, uno o dos al día. Si le proponen uno al otro, le llega para aceptar — mientras no lo acepte, no se muestra. Así es acuerdo entre los dos y no un reclamo.</p>
       </div>
 
       <div class="gal-item">
         <div class="phone">
           <div class="app">
             <div class="status"><span>10:05</span><span>▮▮▮ 71%</span></div>
-            <div class="app-head"><span class="t">Emi</span><span class="s">sábado</span></div>
+            <div class="app-head"><span class="t">Hoy</span><span class="s">sábado 23</span></div>
             <div class="app-body">
-              <div class="panel" style="background:var(--k-soft);border-color:transparent">
-                <p style="font-size:13px;color:var(--k)"><b>¡Hola, Emi!</b> Hoy tienes 2 cositas.</p>
+              <div class="panel" style="background:var(--ni-soft);border-color:transparent">
+                <p style="font-size:12.5px;color:var(--ni)"><b>Victoria y Sofía están en casa</b> · sáb y dom</p>
               </div>
-              <button class="task k" role="checkbox" aria-checked="true" style="cursor:default">
-                <span class="who k">E</span><span class="txt"><b>Tender mi cama</b><small>⭐ hecho</small></span>
+              <button class="task ni" role="checkbox" aria-checked="true">
+                <span class="av ni">Vi</span><span class="txt"><b>Recoger la mesa</b><small>Victoria · hecho</small></span>
                 <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
               </button>
-              <button class="task k" role="checkbox" aria-checked="false" style="cursor:default">
-                <span class="who k">E</span><span class="txt"><b>Recoger mi cuarto</b><small>antes de la comida</small></span>
-                <span class="box"></span>
+              <button class="task ni" role="checkbox" aria-checked="false">
+                <span class="av ni">So</span><span class="txt"><b>Limpiar su cuarto</b><small>Sofía · antes de la comida</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
               </button>
-              <div class="panel">
-                <span class="k">Mis estrellas</span>
-                <p style="font-size:13px">⭐⭐⭐⭐⭐⭐ 6 este mes</p>
-                <p class="note">Ella ve solo esto. Ni dinero, ni el chat de ustedes, ni la lista de nadie más.</p>
-              </div>
+              <button class="task sa" role="checkbox" aria-checked="false">
+                <span class="av sa">Sa</span><span class="txt"><b>Lavar el baño</b><small>de esta semana · hoy le tocó</small></span>
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span>
+              </button>
+              <p class="note" style="padding:2px 4px">Victoria y Sofía usan la misma app que ustedes, sin dinero ni ajustes. Ven lo de todos y palomean lo suyo.</p>
             </div>
-            <div class="nav" style="grid-template-columns:repeat(2,1fr)"><div class="on"><span class="dot"></span>Mis cositas</div><div><span class="dot"></span>Mis estrellas</div></div>
+            <div class="nav"><div class="on"><span class="dot"></span>Hoy</div><div><span class="dot"></span>Semana</div><div><span class="dot"></span>Dinero</div><div><span class="dot"></span>Recordar</div><div><span class="dot"></span>Casa</div></div>
           </div>
         </div>
-        <h3>La app de las niñas</h3>
-        <p>Entran con su propio usuario y ven una versión mínima: lo que tú les pusiste ese fin de semana y sus estrellas. Si no les pusiste nada, no ven nada — no es una app que las persigue.</p>
+        <h3>Cuando vienen las niñas</h3>
+        <p>No tienen nada fijo, porque no vienen todos los fines. El sábado se les asigna lo que toque y les llega a su teléfono. A los 14 y a los 11 no hay estrellitas ni dibujos: es la misma app, tratadas como parte de la casa.</p>
+      </div>
+
+      <div class="gal-item">
+        <div class="phone">
+          <div class="app">
+            <div class="status"><span>21:30</span><span>▮▮▮ 42%</span></div>
+            <div class="app-head"><span class="t">Domingo</span><span class="s">cerrar la semana</span></div>
+            <div class="app-body">
+              <div class="panel">
+                <span class="k">Cómo nos fue</span>
+                <div class="split" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                  <div><span class="hero-num" style="font-size:19px;color:var(--fa)">38</span><p class="note">Fabián palomeó</p></div>
+                  <div><span class="hero-num" style="font-size:19px;color:var(--sa)">34</span><p class="note">Saira palomeó</p></div>
+                </div>
+                <p class="note">Sin porcentajes ni comparación: cocinar tres veces al día no pesa lo mismo que lavar tres veces los trastes, y un número no sabría eso.</p>
+              </div>
+              <div class="panel">
+                <span class="k">La semana que entra</span>
+                <p style="font-size:12px">🐕 Le toca a <b>Saira</b> darle de comer al perro</p>
+                <p style="font-size:12px">👧 Vienen Victoria y Sofía</p>
+                <p style="font-size:12px">💡 Quedó pendiente: cambiar la bombilla</p>
+              </div>
+              <button class="btn" type="button">Listo, cerrar la semana</button>
+            </div>
+            <div class="nav"><div><span class="dot"></span>Hoy</div><div class="on"><span class="dot"></span>Semana</div><div><span class="dot"></span>Dinero</div><div><span class="dot"></span>Recordar</div><div><span class="dot"></span>Casa</div></div>
+          </div>
+        </div>
+        <h3>Diez minutos el domingo</h3>
+        <p>Se ve cómo fue la semana, se cambia el turno del perro, se agrega lo suelto de la semana que entra y se cuadra el dinero. Es el único momento en que hay que sentarse con la app.</p>
       </div>
 
     </div>
   </section>
 
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">Lo que amarra todo</p>
-      <h2>El ritual del domingo · 10 minutos</h2>
-      <p>Nada de esto funciona si hay que acordarse de abrir la app. Un solo momento a la semana, guiado paso a paso, deja lista la semana completa.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><span class="n">1</span><div><h3>Revisar la semana que viene</h3><p>Las tareas fijas ya están puestas. Solo se agrega lo suelto: el taller, un trámite, una visita.</p></div></div>
-      <div class="step"><span class="n">2</span><div><h3>Ver si vienen las niñas</h3><p>Si sí, ponerles lo suyo del sábado y domingo. Si no vienen ese finde, se salta el paso.</p></div></div>
-      <div class="step"><span class="n">3</span><div><h3>Armar el menú</h3><p>Siete platillos del recetario, con porciones para cuatro los días que están las niñas.</p></div></div>
-      <div class="step"><span class="n">4</span><div><h3>Cerrar la lista del súper</h3><p>Ya viene armada del menú más lo que se acabó. Se revisa y se va.</p></div></div>
-      <div class="step"><span class="n">5</span><div><h3>Cuadrar el dinero</h3><p>Meter lo que entró esta semana y los gastos que faltaron. Cinco minutos que evitan el "¿en qué se nos fue?".</p></div></div>
-      <div class="step"><span class="n">6</span><div><h3>Ver qué viene y qué se antoja</h3><p>Fechas importantes de las próximas dos semanas y, si se puede, elegir un antojo para el viernes.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">Mis propuestas</p>
-      <h2>Diez cosas que yo le agregaría</h2>
-      <p>Ideas que no me pediste, pensadas para que la app se quede más de dos semanas.</p>
-    </div>
-    <div class="cards">
-      <div class="card"><h3>Mensajes escritos por ustedes</h3><p>El detalle del día no debe ser una frase genérica de internet. Que cada quien deje mensajes guardados y la app los suelte de a uno: eso sí emociona abrirla.</p></div>
-      <div class="card"><h3>Quitar una fija pregunta dos cosas</h3><p>"¿Solo por esta semana o para siempre?" Sin eso, un día se borra el machote completo por accidente y se pierde la confianza en la app.</p></div>
-      <div class="card"><h3>"Hoy no puedo" en lugar de fallar</h3><p>Un botón que pasa la tarea con motivo. Queda anotado quién cubrió a quién — y eso, no el regaño, es lo que hace que se valore.</p></div>
-      <div class="card"><h3>Gastos fijos que se ponen solos</h3><p>Renta el 1, escuela el 5, luz cada dos meses. El mes nace armado y solo se registra lo variable.</p></div>
-      <div class="card"><h3>Dinero sin juicio</h3><p>Nada de "te pasaste" ni de metas de ahorro impuestas. Solo los números y una frase neutra: "este mes salió más en salidas que el pasado".</p></div>
-      <div class="card"><h3>Foto del ticket</h3><p>Cada gasto puede llevar foto. Se acaban las discusiones de memoria sobre cuánto costó el súper.</p></div>
-      <div class="card"><h3>Guardar un antojo desde donde sea</h3><p>Compartir un link de Instagram o Maps directo a la app con dos etiquetas. Si guardar toma más de cinco segundos, no se guarda.</p></div>
-      <div class="card"><h3>Las estrellas de las niñas se cambian por algo</h3><p>Que ellas sepan desde el viernes qué se gana con juntarlas: peli, postre, elegir la comida del domingo. Estrella sin premio deja de funcionar a la segunda semana.</p></div>
-      <div class="card"><h3>Notificaciones que no reclaman</h3><p>Recordar sí, acusar nunca. "Faltan los trastes" — jamás "llevas 3 días sin hacer tu parte". Una app que regaña se desinstala.</p></div>
-      <div class="card"><h3>Modo tregua</h3><p>Botón para pausar unos días la balanza y las estadísticas: enfermedad, trabajo pesado, mal momento. Las tareas siguen; la medición se calla.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">Por dónde empezar</p>
-      <h2>Tres entregas, en este orden</h2>
-      <p>Cada etapa sirve sola aunque nunca se construya la siguiente. Es una web app que se instala en el teléfono como cualquier otra: sin tiendas, funciona sin señal y se sincroniza entre ustedes al volver.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><span class="n">v1</span><div><h3>Tareas, semana y palomita de repetir</h3><p>Crear tareas con dueño y día, el switch de repetir, la vista Hoy, la vista Semana completa, las niñas con su acceso los findes y el aviso de cuándo vienen. Es la base y ya sirve sola.</p></div></div>
-      <div class="step"><span class="n">v2</span><div><h3>Dinero</h3><p>Ingresos por semana o por mes, gastos con categoría, gastos fijos automáticos, resumen mío y resumen nuestro, y el mes semana por semana. Es lo segundo más útil después de las tareas.</p></div></div>
-      <div class="step"><span class="n">v3</span><div><h3>Nosotros y cocina</h3><p>Detalle del día con mensajes de ustedes, antojos e historial, fechas importantes, chat con tarjetas, acuerdos, y el menú con lista del súper.</p></div></div>
-    </div>
-  </section>
-
   <div class="closing">
-    <h2>Lo que necesito de ti para arrancar la v1</h2>
-    <p><b>1. Los nombres reales.</b> Aquí puse a tu pareja como <b>Ira</b> y a tus hijas como Emi y Sofi — dime cómo se llaman de verdad y qué edades tienen, porque de la edad depende si su vista lleva dibujos o texto.</p>
-    <p><b>2. Tu machote de verdad.</b> Qué le toca a cada quien de lunes a domingo, día por día. Con eso la app nace llena y no vacía. Mándamelo como te salga, aunque sea en desorden.</p>
-    <p><b>3. Tus categorías de dinero.</b> Las que uso aquí (casa, súper, escuela, salidas, transporte) son de ejemplo. Dime las tuyas y si hay gastos fijos con fecha.</p>
-    <p><b>4. Una decisión.</b> ¿Empezamos con el recetario de ustedes — sus platillos con ingredientes, gratis y sin internet — o quieres desde el arranque que la app sugiera menús con IA?</p>
+    <h2>Saira: esto es lo que falta que tú decidas</h2>
+    <p><b>1.</b> Si te late cómo quedó repartido, o si hay algo que preferirías cambiar de lugar. La lista de aquí es la que armó Fabián — nada está fijo hasta que ustedes dos lo den por bueno.</p>
+    <p><b>2.</b> Tus recordatorios: los que aparecen aquí son un ejemplo. Los tuyos los escribes tú, y los que él te proponga te llegan para aceptar o no.</p>
+    <p><b>3.</b> Del dinero: si quieres que tu meta semanal aparezca en la app o prefieres registrar nada más lo que entra, sin meta a la vista.</p>
+    <p><b>4.</b> Cualquier cosa que falte. Esta es la versión de la idea, no la app terminada: mover algo ahorita es escribir un renglón; moverlo después es rehacer una pantalla.</p>
   </div>
 
-  <footer>Palomita · concepto v3 · ago 2026</footer>
+  <footer>Juntos+ · así se vería con sus datos · agosto 2026</footer>
 </div>
 
 <script>
   (function () {
-    var tasks = Array.prototype.slice.call(document.querySelectorAll('.task[data-owner]'));
-    tasks.forEach(function (t) {
+    document.querySelectorAll('.task[role="checkbox"]').forEach(function (t) {
       if (!t.querySelector('.box')) { return; }
       t.addEventListener('click', function () {
         t.setAttribute('aria-checked', t.getAttribute('aria-checked') === 'true' ? 'false' : 'true');

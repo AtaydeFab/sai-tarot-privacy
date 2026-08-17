@@ -39,7 +39,6 @@
   ul { margin:0; padding-left:20px; max-width:74ch; color:var(--ink-2); }
   li { margin-bottom:6px; }
   li::marker { color:var(--muted); }
-  code { font-family:var(--mono); font-size:.86em; background:var(--surface-2); padding:1px 5px; border-radius:5px; }
 
   header.cover { padding:74px 0 28px; display:grid; gap:18px; border-bottom:1px solid var(--line); }
   .brand { display:flex; align-items:center; gap:11px; font-family:var(--display); font-size:20px; }
@@ -62,15 +61,15 @@
   .money { font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap; }
 
   .who { display:inline-flex; align-items:center; gap:7px; white-space:nowrap; }
-  .av { width:24px; height:24px; border-radius:50%; display:inline-grid; place-items:center; font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.02em; }
+  .av { width:24px; height:24px; border-radius:50%; display:inline-grid; place-items:center; font-family:var(--mono); font-size:9.5px; font-weight:700; }
   .av.fa { background:var(--fa-soft); color:var(--fa); }
   .av.sa { background:var(--sa-soft); color:var(--sa); }
   .av.ni { background:var(--ni-soft); color:var(--ni); }
   .av.jt { background:var(--surface-2); color:var(--muted); }
 
   .tag { font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; padding:2.5px 7px; border-radius:999px; background:var(--surface-2); color:var(--muted); white-space:nowrap; }
-  .tag.check { background:var(--ni-soft); color:var(--ni); }
   .tag.new { background:var(--good-soft); color:var(--good); }
+  .tag.flex { background:var(--fa-soft); color:var(--fa); }
 
   .callout { border-left:3px solid var(--line); background:var(--surface); border-radius:0 var(--radius) var(--radius) 0; padding:15px 18px; display:grid; gap:6px; margin:18px 0; max-width:80ch; }
   .callout .lbl { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
@@ -79,9 +78,9 @@
   .callout.dec { border-color:var(--fa); background:var(--fa-soft); } .callout.dec .lbl { color:var(--fa); }
   .callout.ok { border-color:var(--good); background:var(--good-soft); } .callout.ok .lbl { color:var(--good); }
 
-  .totals { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); margin:16px 0; }
+  .totals { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin:16px 0; }
   .tot { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:15px 16px; display:grid; gap:2px; }
-  .tot .v { font-family:var(--mono); font-size:21px; font-variant-numeric:tabular-nums; }
+  .tot .v { font-family:var(--mono); font-size:20px; font-variant-numeric:tabular-nums; }
   .tot .l { font-size:12.5px; color:var(--muted); }
 
   .final { margin-top:56px; padding:26px; border-radius:var(--radius); background:var(--surface); border:1px solid var(--line); display:grid; gap:11px; }
@@ -102,75 +101,72 @@
       </svg>
       <span>Juntos+</span>
     </div>
-    <h1>El machote de su casa, ya ordenado</h1>
-    <p>Esto es lo que me pasaste, convertido en la configuración con la que va a nacer la app. Lo que inventé yo está marcado <span class="tag check">a confirmar</span> — corrígeme eso y cargo la app con sus datos reales, no con relleno.</p>
+    <h1>El machote de su casa, ya completo</h1>
+    <p>Con tus correcciones, esta es la configuración exacta con la que va a nacer la app. Ya no queda nada inventado por mí: todo lo de aquí es dato tuyo.</p>
   </header>
 
   <section>
-    <div class="sec-title"><span class="n">01</span><h2>Los cuatro</h2>
-      <p>Cada quien tiene color e iniciales. Las iniciales son el identificador real; el color acompaña.</p>
-    </div>
+    <div class="sec-title"><span class="n">01</span><h2>Los cuatro</h2></div>
     <div class="tw">
       <table>
         <tr><th>Persona</th><th>En la app</th><th>Edad</th><th>Qué ve</th></tr>
         <tr><td><b>Fabián Atayde</b></td><td><span class="who"><span class="av fa">Fa</span>azul</span></td><td>—</td><td>Todo: tareas, dinero, ajustes</td></tr>
         <tr><td><b>Saira Martínez</b></td><td><span class="who"><span class="av sa">Sa</span>rosa</span></td><td>—</td><td>Todo: tareas, dinero, ajustes</td></tr>
-        <tr><td><b>Victoria Valentina</b></td><td><span class="who"><span class="av ni">Vi</span>ocre</span></td><td>14</td><td>Tareas y recordatorios. Nada de dinero</td></tr>
-        <tr><td><b>Sofía Isabella</b></td><td><span class="who"><span class="av ni">So</span>ocre</span></td><td>11</td><td>Tareas y recordatorios. Nada de dinero</td></tr>
+        <tr><td><b>Victoria Valentina</b></td><td><span class="who"><span class="av ni">Vi</span>ocre</span></td><td>14</td><td>Tareas de todos y las suyas. Nada de dinero</td></tr>
+        <tr><td><b>Sofía Isabella</b></td><td><span class="who"><span class="av ni">So</span>ocre</span></td><td>11</td><td>Tareas de todos y las suyas. Nada de dinero</td></tr>
       </table>
     </div>
-    <p style="font-size:14.5px;color:var(--muted)">Nota de color: probé paletas de cuatro tonos y no existe un juego de cuatro colores que se distinga bien para todos los tipos de daltonismo. Por eso son tres tonos —azul, rosa y ocre— y las niñas comparten el ocre, diferenciadas por iniciales. Ninguna información depende solo del color.</p>
-
-    <div class="callout risk">
-      <span class="lbl">Corrección importante al plan</span>
-      <p><b>14 y 11 años no son "misiones con dibujitos y estrellas".</b> Yo había diseñado una app infantil, y con esas edades sería casi ofensiva para Victoria. Propuesta: <b>la misma app que ustedes</b>, con las mismas pantallas de tareas, sin acceso a dinero ni a ajustes. Sofía la usa igual, solo con textos más directos. Esto además <em>quita</em> trabajo: ya no hay que construir una app aparte, es la misma con permisos distintos.</p>
-    </div>
-    <div class="callout dec">
-      <span class="lbl">Decisión que propongo</span>
-      <p>Que ellas <b>vean las tareas de todos</b>, no solo las suyas. A esas edades, ver que en la casa cada quien tiene lo suyo hace más por la convivencia que esconderlo. Si prefieres que solo vean lo propio, se cambia con un interruptor.</p>
-    </div>
+    <p style="font-size:14.5px;color:var(--muted)">Tres tonos y no cuatro: no existe un juego de cuatro colores que se distinga bien para todos los tipos de daltonismo, así que las niñas comparten el ocre y se diferencian por iniciales. Nada depende solo del color.</p>
   </section>
 
   <section>
     <div class="sec-title"><span class="n">02</span><h2>Machote fijo</h2>
-      <p>Quince tareas que se repiten. Tu lista no traía días ni frecuencia, así que propuse una para cada una — las que dicen <span class="tag check">a confirmar</span> son mi suposición, no tu dato.</p>
+      <p>Quince tareas que se repiten solas. Ya con tus frecuencias reales.</p>
     </div>
     <div class="tw">
       <table>
-        <tr><th>Tarea</th><th>Responsable</th><th>Cada cuándo</th><th></th></tr>
-        <tr><td>Hacer el almuerzo</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Hacer la comida</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Hacer la cena</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Lavar trastes del almuerzo</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Lavar trastes de la comida</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Lavar trastes de la cena</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Alzar la cama</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario, en la mañana</td><td></td></tr>
-        <tr><td>Sacar al perro en la mañana</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Sacar al perro en la tarde</td><td><span class="who"><span class="av jt">Jt</span>Juntos</span></td><td>Diario</td><td></td></tr>
-        <tr><td>Recoger cosas para barrer</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td><td><span class="tag check">a confirmar</span></td></tr>
-        <tr><td>Trapear</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Lunes, miércoles y viernes</td><td><span class="tag check">a confirmar</span></td></tr>
-        <tr><td>Lavar la ropa</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Martes y sábado</td><td><span class="tag check">a confirmar</span></td></tr>
-        <tr><td>Lavar el baño</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Sábado</td><td><span class="tag check">a confirmar</span></td></tr>
-        <tr><td>Sacar la basura</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>¿Qué días pasa el camión?</td><td><span class="tag check">a confirmar</span></td></tr>
-        <tr><td>Darle de comer al perro</td><td><span class="who"><span class="av jt">Jt</span>Turno semanal</span></td><td>Diario, alternando cada semana</td><td></td></tr>
+        <tr><th>Tarea</th><th>Responsable</th><th>Cada cuándo</th></tr>
+        <tr><td>Hacer el almuerzo</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td></tr>
+        <tr><td>Hacer la comida</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td></tr>
+        <tr><td>Hacer la cena</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td></tr>
+        <tr><td>Trapear</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td></tr>
+        <tr><td>Sacar al perro en la mañana</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td>Diario</td></tr>
+        <tr><td>Lavar trastes del almuerzo</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td></tr>
+        <tr><td>Lavar trastes de la comida</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td></tr>
+        <tr><td>Lavar trastes de la cena</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td></tr>
+        <tr><td>Alzar la cama</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario, en la mañana</td></tr>
+        <tr><td>Recoger cosas y pasar la aspiradora</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario</td></tr>
+        <tr><td>Sacar la basura</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td>Diario · el camión pasa diario</td></tr>
+        <tr><td>Sacar al perro en la tarde</td><td><span class="who"><span class="av jt">Jt</span>De los dos</span></td><td>Diario · lo palomea cualquiera</td></tr>
+        <tr><td>Darle de comer al perro</td><td><span class="who"><span class="av jt">Jt</span>Turno semanal</span></td><td>Diario · se alterna cada lunes</td></tr>
+        <tr><td>Lavar la ropa</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td><span class="tag flex">sin día fijo</span> Una vez a la semana, puede tomar 2 o 3 días</td></tr>
+        <tr><td>Lavar el baño</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td><span class="tag flex">sin día fijo</span> Una vez a la semana</td></tr>
       </table>
     </div>
 
-    <h3>Dos cosas nuevas que trae tu lista</h3>
-    <ul>
-      <li><b>Tareas "juntos".</b> Sacar al perro en la tarde es de los dos. No lo tenía contemplado: agrego un tercer tipo de responsable donde <em>cualquiera</em> la palomea y queda registrado quién la hizo, sin repartirla en dos.</li>
-      <li><b>Turno que rota cada semana.</b> Darle de comer al perro se alterna: una semana Fabián, la siguiente Saira. La app lo cambia sola los lunes y lo muestra en la pantalla de inicio. Si se salta un turno, no se pierde: se recorre.</li>
-    </ul>
+    <div class="callout dec">
+      <span class="lbl">Tipo nuevo de tarea</span>
+      <p><b>Sin día fijo.</b> Lavar la ropa y lavar el baño no tienen día: aparecen como pendientes de la semana y quien las tiene elige cuándo. La ropa además puede quedar abierta dos o tres días sin que la app la marque como atrasada — se palomea cuando quedó lista, no cuando empezó. Si llega el domingo sin hacerse, la app lo recuerda una vez y ya.</p>
+    </div>
 
+    <h3>Las niñas</h3>
+    <p>Sin tareas fijas, porque no vienen todos los fines de semana. Cuando estén, se les asigna a mano lo que toque —recoger la mesa, su cuarto, lo que sea— y les llega a su teléfono. Ven las tareas de todos, igual que ustedes.</p>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="n">03</span><h2>Pasarle pendientes al otro <span class="tag new">función nueva</span></h2>
+      <p>Esto no estaba en el plan y cambia cómo se usa la app todos los días.</p>
+    </div>
+    <p>Cualquiera puede agregarle un pendiente a otro y le llega a los suyos: Saira te pone "cambiar la bombilla del pasillo", tú le pones "bañar al perro", y a las niñas "limpiar la mesa" cuando estén. Llega con aviso y se queda en pendientes hasta que se palomea.</p>
     <div class="callout risk">
-      <span class="lbl">Una observación honesta sobre el conteo</span>
-      <p>En número de tareas la semana queda casi pareja: 6 diarias tuyas contra 5 de Saira. Pero <b>cocinar tres veces al día no pesa lo mismo que lavar tres veces los trastes</b> — no por el tiempo, sino por la cabeza que ocupa planear qué se come. Si la app enseñara un marcador de "6 contra 5", diría algo falso. Por eso el conteo semanal se queda sin porcentajes y sin comparación: informa, no califica.</p>
+      <span class="lbl">Cómo lo diseño para que no se vuelva un látigo</span>
+      <p>Yo había propuesto que nadie pudiera asignarle nada al otro sin que lo aceptara. Tú lo quieres directo, y es tu casa — así queda. Pero le dejo una válvula: quien lo recibe puede <b>moverlo de día o decir "no puedo"</b>, y eso le regresa al que lo puso. Sin esa salida, una app así se convierte en la lista de órdenes de uno para el otro, y es la manera más rápida de que alguien deje de abrirla.</p>
     </div>
   </section>
 
   <section>
-    <div class="sec-title"><span class="n">03</span><h2>Recordatorios de convivencia <span class="tag new">función nueva</span></h2>
-      <p>Esto no estaba en el plan y me parece de lo más valioso que mandaste. Son las cosas chiquitas que no son tareas pero desgastan.</p>
+    <div class="sec-title"><span class="n">04</span><h2>Recordatorios de convivencia</h2>
+      <p>Las cosas chiquitas que no son tareas pero desgastan.</p>
     </div>
     <div class="tw">
       <table>
@@ -181,80 +177,80 @@
         <tr><td>No dejar los zapatos regados</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td></tr>
       </table>
     </div>
-    <h3>Cómo funcionan, para que no se vuelvan reclamos</h3>
     <ul>
-      <li><b>Cada recordatorio aparece solo en el teléfono de quien le toca.</b> El tuyo lo ves tú; el de Saira lo ve ella. Nunca hay una pantalla con la lista de fallas del otro — eso sería un tablero de quejas.</li>
-      <li><b>Uno o dos al día, rotando</b>, en la pantalla de inicio. No se repiten los mismos toda la semana.</li>
-      <li><b>Si le pones uno al otro, le llega para aceptar.</b> Cuando lo acepta, se vuelve un acuerdo de los dos; mientras no, no se muestra. Así nadie amanece con una regla que no pidió.</li>
-      <li><b>Los hay permanentes y de esta semana nada más</b> — igual que las tareas, con o sin palomita de repetir. "Acuérdate de que el viernes viene el plomero" se va solo cuando pasa.</li>
-      <li>Las niñas también pueden tener los suyos, con el mismo trato.</li>
+      <li><b>Cada quien ve solo los suyos</b>, uno o dos al día, rotando. Nunca hay una pantalla con la lista de fallas del otro.</li>
+      <li><b>Si le propones uno al otro, le llega para aceptar.</b> Mientras no lo acepte, no se muestra: así es acuerdo y no regla impuesta.</li>
+      <li><b>También los hay de una semana</b>: "el viernes viene el del gas" se va solo cuando pasa el viernes.</li>
     </ul>
   </section>
 
   <section>
-    <div class="sec-title"><span class="n">04</span><h2>Dinero</h2>
-      <p>Los fijos que me diste, listos para que entren solos cada mes. Los variables se registran cuando pasan.</p>
+    <div class="sec-title"><span class="n">05</span><h2>Dinero</h2>
+      <p>Ingresos, fijos y ahorro. Todo visible entre ustedes dos.</p>
     </div>
 
-    <h3>Gastos fijos</h3>
+    <h3>Lo que entra</h3>
+    <div class="tw">
+      <table>
+        <tr><th>Quién</th><th>Cuánto</th><th>Cada cuándo</th><th>Cómo lo maneja la app</th></tr>
+        <tr><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td><td class="money">$12,300</td><td>Quincenal</td><td>Ingreso fijo. De ahí salen $3,000 de pensión, que entra como gasto fijo para que se vea</td></tr>
+        <tr><td><span class="who"><span class="av sa">Sa</span>Saira</span></td><td class="money">meta $4,500</td><td>Semanal</td><td>Ingreso variable: se registra lo que de verdad entra y la meta queda de referencia</td></tr>
+      </table>
+    </div>
+
+    <h3>Lo que sale fijo</h3>
     <div class="tw">
       <table>
         <tr><th>Concepto</th><th>Monto</th><th>Cada cuándo</th><th>Quién paga</th></tr>
-        <tr>
-          <td><b>Renta</b></td><td class="money">$4,500</td><td>Mensual, día 6</td>
-          <td><span class="who"><span class="av fa">Fa</span>$2,500</span> &nbsp; <span class="who"><span class="av sa">Sa</span>$2,000</span></td>
-        </tr>
-        <tr><td><b>Luz</b></td><td class="money">~$600</td><td>Cada 2 meses</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td></tr>
+        <tr><td><b>Ahorro</b></td><td class="money">$4,000</td><td>Quincenal</td><td><span class="who"><span class="av fa">Fa</span>$2,000</span> &nbsp; <span class="who"><span class="av sa">Sa</span>$2,000</span></td></tr>
+        <tr><td><b>Pensión de las niñas</b></td><td class="money">$3,000</td><td>Quincenal</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td></tr>
+        <tr><td><b>Renta</b></td><td class="money">$4,500</td><td>Mensual, día 6</td><td><span class="who"><span class="av fa">Fa</span>$2,500</span> &nbsp; <span class="who"><span class="av sa">Sa</span>$2,000</span></td></tr>
         <tr><td><b>Internet</b></td><td class="money">~$450</td><td>Mensual</td><td><span class="who"><span class="av sa">Sa</span>Saira</span></td></tr>
-        <tr><td><b>Súper</b></td><td class="money">~$1,000</td><td>Semanal</td><td>El que vaya · se registra al pagar</td></tr>
+        <tr><td><b>Luz</b></td><td class="money">~$600</td><td>Cada 2 meses</td><td><span class="who"><span class="av fa">Fa</span>Fabián</span></td></tr>
+        <tr><td><b>Súper</b></td><td class="money">~$1,000</td><td>Semanal</td><td>El que vaya · monto real al pagar</td></tr>
       </table>
     </div>
 
     <div class="totals">
-      <div class="tot"><span class="v">$9,250</span><span class="l">Fijos al mes, aproximado<br>(luz prorrateada, súper ×4)</span></div>
-      <div class="tot"><span class="v">$4,500</span><span class="l">De renta, partido 2,500 / 2,000</span></div>
-      <div class="tot"><span class="v">4</span><span class="l">Cargos que entran solos, sin capturar</span></div>
+      <div class="tot"><span class="v">$42,600</span><span class="l">Entra al mes entre los dos, si se cumple la meta</span></div>
+      <div class="tot"><span class="v">$23,250</span><span class="l">Sale fijo al mes, ahorro y pensión incluidos</span></div>
+      <div class="tot"><span class="v">$19,350</span><span class="l">Queda para lo variable</span></div>
+      <div class="tot"><span class="v">$8,000</span><span class="l">Se ahorra al mes</span></div>
     </div>
 
     <div class="callout dec">
-      <span class="lbl">Cambio al modelo de datos</span>
-      <p>La renta obligó un ajuste: un gasto fijo puede tener <b>aportaciones distintas por persona</b> ($2,500 y $2,000), no un solo pagador. Ya quedó contemplado. El súper es al revés: monto variable y pagador variable, así que entra como recordatorio semanal y se captura el monto real al momento.</p>
+      <span class="lbl">Tres decisiones de cómo se registra</span>
+      <p><b>El ahorro va como gasto fijo</b>, no como lo que sobró: se aparta primero y así no se gasta sin querer. <b>La pensión también</b>, contra tu ingreso completo, para que se vea que existe en lugar de esconderla restándola. Y <b>la meta de Saira nunca se da por hecha</b>: la app enseña lo que de verdad entró esa semana y cuánto falta, porque un ingreso variable puesto como fijo hace que los números mientan.</p>
     </div>
 
-    <h3>Categorías propuestas</h3>
-    <p>Renta · Servicios (luz, internet) · Súper · Comidas fuera · Entretenimiento · Perro · Niñas · Otros. <span class="tag check">a confirmar</span> — quita las que sobren y agrega las que falten; entre menos, más fácil es capturar.</p>
-
-    <div class="callout risk">
-      <span class="lbl">Lo que falta y sí hace falta</span>
-      <p><b>Los ingresos.</b> Sin cuánto entra y cada cuándo, la app solo puede decir cuánto se gastó — no puede decir cuánto queda, que es la mitad de lo que pediste. Necesito de cada uno: cuánto y si es mensual, quincenal o semanal. No tiene que ser exacto: un promedio sirve.</p>
-    </div>
+    <h3>Categorías</h3>
+    <p>Ahorro · Pensión · Renta · Servicios (luz, internet) · Súper · Comidas fuera · Entretenimiento · Perro · Niñas · Otros.</p>
   </section>
 
   <section>
-    <div class="sec-title"><span class="n">05</span><h2>Qué cambia en el plan</h2>
-      <p>Con estos datos, cinco cosas se mueven respecto al anteproyecto.</p>
-    </div>
+    <div class="sec-title"><span class="n">06</span><h2>Qué cambió en el plan</h2></div>
     <div class="tw">
       <table>
-        <tr><th>Cambio</th><th>Efecto</th></tr>
-        <tr><td>Las niñas tienen 14 y 11, no 6 y 9</td><td><b>Menos trabajo.</b> Se cae la app infantil con dibujos y estrellas; es la misma app con permisos. La fase de "app de las niñas" se reduce a la mitad.</td></tr>
-        <tr><td>Los cuatro usan Android</td><td><b>Menos riesgo.</b> Las notificaciones funcionan sin las limitaciones de iPhone y la app se instala en dos toques desde el navegador.</td></tr>
-        <tr><td>Recordatorios de convivencia</td><td><b>Función nueva en la v1.</b> Es barata de construir y resuelve algo que las tareas no cubren.</td></tr>
-        <tr><td>Tareas "juntos" y turno semanal</td><td>Dos tipos nuevos de responsable en el modelo de tareas. Poco código, pero mejor tenerlo desde el principio que parchearlo después.</td></tr>
-        <tr><td>Renta partida entre los dos</td><td>Los gastos fijos aceptan aportaciones por persona.</td></tr>
+        <tr><th>Dato tuyo</th><th>Efecto</th></tr>
+        <tr><td>Victoria 14 y Sofía 11</td><td><b>Menos trabajo.</b> Se cae la app infantil con dibujos y estrellas: es la misma app con permisos distintos.</td></tr>
+        <tr><td>Los cuatro en Android</td><td><b>Menos riesgo.</b> Las notificaciones funcionan sin las limitaciones de iPhone.</td></tr>
+        <tr><td>Pasarle pendientes al otro</td><td>Función nueva en la v1, con la válvula de "no puedo".</td></tr>
+        <tr><td>Recordatorios de convivencia</td><td>Función nueva en la v1, cada quien ve solo los suyos.</td></tr>
+        <tr><td>Lavar ropa y baño sin día fijo</td><td>Tipo nuevo de tarea: semanal flexible, que puede durar varios días.</td></tr>
+        <tr><td>Tareas de los dos y turno semanal</td><td>Dos tipos nuevos de responsable en el modelo.</td></tr>
+        <tr><td>Renta y ahorro partidos</td><td>Los gastos fijos aceptan aportaciones distintas por persona.</td></tr>
+        <tr><td>Ingreso variable de Saira</td><td>Metas de ingreso: se registra lo real, la meta es referencia.</td></tr>
+        <tr><td>Saira está de acuerdo</td><td><b>El riesgo número uno del proyecto se cae.</b> Era el único que podía tumbar la app entera.</td></tr>
       </table>
     </div>
   </section>
 
   <div class="final">
-    <h2>Lo que me falta para cargar la app</h2>
-    <p><b>1.</b> Corregir las cinco frecuencias marcadas "a confirmar" — y decirme qué días pasa el camión de la basura.</p>
-    <p><b>2.</b> Los ingresos de cada uno: cuánto y cada cuándo. Un promedio basta.</p>
-    <p><b>3.</b> ¿Victoria y Sofía tienen tareas fijas los fines de semana, o se las pones a mano cuando vienen?</p>
-    <p><b>4.</b> ¿Las niñas ven las tareas de todos o solo las suyas? (yo recomiendo que vean todas)</p>
-    <p><b>5.</b> La que sigue sin respuesta y es la más importante del proyecto: <b>¿Saira ya sabe de esto y le entra?</b> Si tiene dudas, prefiero saberlo ahora y arrancar con menos.</p>
-    <p style="color:var(--ink);font-weight:600">Con eso corregido, escribe APROBADO y empiezo a construir.</p>
+    <h2>Ya no me falta nada para empezar</h2>
+    <p>Tengo los cuatro nombres, las quince tareas con sus frecuencias, los recordatorios, los ingresos, los fijos con quién paga qué, y el visto bueno de Saira.</p>
+    <p>Lo único que dejo abierto —y no me bloquea— es si Saira quiere <b>ver su meta semanal dentro de la app</b> o prefiere registrar nomás lo que entra. Se puede prender y apagar después.</p>
+    <p style="color:var(--ink);font-weight:600">Cuando escribas APROBADO, arranco con la fase 1 y te voy enseñando cada parte conforme la construya.</p>
   </div>
 
-  <footer>Juntos+ · configuración inicial · agosto 2026</footer>
+  <footer>Juntos+ · configuración final · agosto 2026</footer>
 </div>
